@@ -5,5 +5,15 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        data: '@import "src/styles/styles.scss";',
+        includePaths: [
+          'src/components',
+        ],
+      },
+    }
+  ]
 }
