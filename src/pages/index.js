@@ -13,18 +13,23 @@ import {TweenLite} from 'gsap/TweenMax'
 import menuController from '../controllers/menuController'
 
 export default () => {
-  const canHover = window.matchMedia('(hover: hover)').matches
+  let canHover = ''
+  let windowHeight = ''
+  
+  if (typeof window !== `undefined`) {
+    canHover = window.matchMedia('(hover: hover)').matches
+    windowHeight = window.innerHeight
+  }
 
   const [pageY, setPageY] = useState(0)
   const scrollLength = 500
-  const windowHeight = window.innerHeight
   
   const handleScroll = () => {
     let wy = window.pageYOffset
     setPageY(wy)
   }
 
-  useEffect(() => {
+  useEffect(() => {    
     let menu = document.getElementById('menu')
     let epre = document.getElementById('epre')
     let ec = document.getElementById('ec')

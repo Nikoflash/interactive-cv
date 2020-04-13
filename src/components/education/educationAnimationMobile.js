@@ -1,7 +1,10 @@
 import {TweenMax} from "gsap/TweenMax"
 
 export function rotationAnimation(elementName, rotationParams, delay, pageY, scrollLength) {
-  const paths = document.getElementsByClassName(elementName)
+    let paths = ''
+    if (typeof document !== `undefined`) {
+      paths = document.getElementsByClassName(elementName)
+    }
   for (let i = 0; i < paths.length; i++) {
     let rotateObj = rotationParams[i]
     let degs = (rotateObj.rotation/scrollLength)*pageY

@@ -14,90 +14,89 @@ export default ({handleTouch, pageY, scrollLength}) => {
 const Experience = ({handleTouch, pageY, scrollLength}) => {
 
   useEffect(() => {
-    TweenMax.set('#xp', { css: { opacity: 1 } });
-    TweenMax.set('#xp-e12, #xp-e22, #xp-e32, #xp-e42', { y: 74 });
-    TweenMax.set('#xp-e13, #xp-e23, #xp-e33, #xp-e43', { y: 37 });
-    TweenMax.set('#xp-x1, #xp-e11, #xp-e21,  #xp-e31, #xp-n1', { rotation: 90, transformOrigin: '0 100%' });
-    TweenMax.set('#xp-e41, #xp-x2', { rotation: -90, transformOrigin: '0 100%' });
-    TweenMax.set('#xp-p', { rotation: 53, y: '8', transformOrigin: '0 100%' });
-    TweenMax.set('#xp-r1', { rotation: -90, transformOrigin: '0 100%' });
-    TweenMax.set('#xp-n2', { rotation: -63, transformOrigin: '100% 100%' });
-    TweenMax.set('#xp-c', { rotation: -50, transformOrigin: '100% 100%' });
-    TweenMax.set('#xp-r2', { rotation: 53, transformOrigin: '0 100%' });
-    TweenMax.set('#xp-i', { rotation: 90, transformOrigin: '0 100%' });
-    
-  }, [])
+    new TweenMax.set('#xp', { css: { opacity: 1 } });
+    new TweenMax.set('#xp-e12, #xp-e22, #xp-e32, #xp-e42', { y: 74 });
+    new TweenMax.set('#xp-e13, #xp-e23, #xp-e33, #xp-e43', { y: 37 });
+    new TweenMax.set('#xp-x1, #xp-e11, #xp-e21,  #xp-e31, #xp-n1', { rotation: 90, transformOrigin: '0 100%' });
+    new TweenMax.set('#xp-e41, #xp-x2', { rotation: -90, transformOrigin: '0 100%' });
+    new TweenMax.set('#xp-p', { rotation: 53, y: '8', transformOrigin: '0 100%' });
+    new TweenMax.set('#xp-r1', { rotation: -90, transformOrigin: '0 100%' });
+    new TweenMax.set('#xp-n2', { rotation: -63, transformOrigin: '100% 100%' });
+    new TweenMax.set('#xp-c', { rotation: -50, transformOrigin: '100% 100%' });
+    new TweenMax.set('#xp-r2', { rotation: 53, transformOrigin: '0 100%' });
+    new TweenMax.set('#xp-i', { rotation: 90, transformOrigin: '0 100%' });
 
-  new TweenMax.to('#xp-e12, #xp-e22, #xp-e32, #xp-e42', 0.5, {
-    y: 74-((74/scrollLength)*pageY),
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-e13, #xp-e23, #xp-e33, #xp-e43', 0.5, {
-    y: 37-((37/scrollLength)*pageY),
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-x1', 0.5, {
-    rotation: 90-((63/scrollLength)*pageY), 
-    transformOrigin: '0 100%',
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-x2', 0.5, {
-    rotation: -90+((63/scrollLength)*pageY), 
-    transformOrigin: '0 100%',
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-e11, #xp-e21,  #xp-e31, #xp-n1', 0.5, {
-    rotation: 90-((90/scrollLength)*pageY), 
-    transformOrigin: '0 100%',
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-e41', 0.5, {
-    rotation: -90+((90/scrollLength)*pageY), 
-    transformOrigin: '0 100%',
-    ease: Power2.easeOut,
-  })
-
-  new TweenMax.to('#xp-p', 0.5, {
-    rotation: 53-((53/scrollLength)*pageY),
-    y: '8', 
-    transformOrigin: '0 100%',
-    ease: Power2.easeOut
-  })
+    new TweenMax.to('#xp-e12, #xp-e22, #xp-e32, #xp-e42', 0.5, {
+      y: 74-((74/scrollLength)*pageY),
+      ease: Power2.easeOut
+    })
   
-  new TweenMax.to('#xp-r1', 0.5, {
-    rotation: -90+((35/scrollLength)*pageY), 
-    transformOrigin: '0 100%',
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-r2', 0.5, {
-    rotation: 53-((53/scrollLength)*pageY), 
-    transformOrigin: '0 100%',
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-i', 0.5, {
-    rotation: 90-((90/scrollLength)*pageY), 
-    transformOrigin: '0 100%',
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-n2', 0.5, {
-    rotation: -63+((63/scrollLength)*pageY), 
-    transformOrigin: '100% 100%',
-    ease: Power2.easeOut
-  })
-
-  new TweenMax.to('#xp-c', 0.5, {
-    rotation: -50+((50/scrollLength)*pageY), 
-    transformOrigin: '100% 100%',
-    ease: Power2.easeOut
-  })
+    new TweenMax.to('#xp-e13, #xp-e23, #xp-e33, #xp-e43', 0.5, {
+      y: 37-((37/scrollLength)*pageY),
+      ease: Power2.easeOut
+    })
+  
+    new TweenMax.to('#xp-x1', 0.5, {
+      rotation: 90-((63/scrollLength)*pageY), 
+      transformOrigin: '0 100%',
+      ease: Power2.easeOut
+    })
+  
+    new TweenMax.to('#xp-x2', 0.5, {
+      rotation: -90+((63/scrollLength)*pageY), 
+      transformOrigin: '0 100%',
+      ease: Power2.easeOut
+    })
+  
+    new TweenMax.to('#xp-e11, #xp-e21,  #xp-e31, #xp-n1', 0.5, {
+      rotation: 90-((90/scrollLength)*pageY), 
+      transformOrigin: '0 100%',
+      ease: Power2.easeOut
+    })
+  
+    new TweenMax.to('#xp-e41', 0.5, {
+      rotation: -90+((90/scrollLength)*pageY), 
+      transformOrigin: '0 100%',
+      ease: Power2.easeOut,
+    })
+  
+    new TweenMax.to('#xp-p', 0.5, {
+      rotation: 53-((53/scrollLength)*pageY),
+      y: '8', 
+      transformOrigin: '0 100%',
+      ease: Power2.easeOut
+    })
+    
+    new TweenMax.to('#xp-r1', 0.5, {
+      rotation: -90+((35/scrollLength)*pageY), 
+      transformOrigin: '0 100%',
+      ease: Power2.easeOut
+    })
+  
+    new TweenMax.to('#xp-r2', 0.5, {
+      rotation: 53-((53/scrollLength)*pageY), 
+      transformOrigin: '0 100%',
+      ease: Power2.easeOut
+    })
+  
+    new TweenMax.to('#xp-i', 0.5, {
+      rotation: 90-((90/scrollLength)*pageY), 
+      transformOrigin: '0 100%',
+      ease: Power2.easeOut
+    })
+  
+    new TweenMax.to('#xp-n2', 0.5, {
+      rotation: -63+((63/scrollLength)*pageY), 
+      transformOrigin: '100% 100%',
+      ease: Power2.easeOut
+    })
+  
+    new TweenMax.to('#xp-c', 0.5, {
+      rotation: -50+((50/scrollLength)*pageY), 
+      transformOrigin: '100% 100%',
+      ease: Power2.easeOut
+    })
+  }, [])
 
   return (
     <svg onTouchEnd={handleTouch} id="xp" className={styles.xp} viewBox="0 0 510 95" version="1.1" xmlns="http://www.w3.org/2000/svg">

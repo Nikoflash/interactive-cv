@@ -1,8 +1,11 @@
 import {TweenMax, Power2} from "gsap/TweenMax"
 
 export function rotationAnimation(elementName, rotationParams, delay) {
-  const paths = document.getElementsByClassName(elementName)
-  for (let i = 0; i < paths.length; i++) {
+    let paths = ''
+    if (typeof document !== `undefined`) {
+      paths = document.getElementsByClassName(elementName)
+    }  
+    for (let i = 0; i < paths.length; i++) {
     let rotateObj = rotationParams[i]
     let degs = rotateObj.rotation
     let path = paths[i]
@@ -40,8 +43,11 @@ export function rotationAnimation(elementName, rotationParams, delay) {
 }
 
 export function reverseRotationAnimation(elementName, rotationParams) {
-  const paths = document.getElementsByClassName(elementName)
-  for (let i = 0; i < paths.length; i++) {
+    let paths = ''
+    if (typeof document !== `undefined`) {
+      paths = document.getElementsByClassName(elementName)
+    } 
+    for (let i = 0; i < paths.length; i++) {
     let rotateObj = rotationParams[i]
     let path = paths[i]
     let currentRotation = 0
@@ -79,8 +85,11 @@ export function reverseRotationAnimation(elementName, rotationParams) {
 }
 
 export function rewind(elementName, rotationParams) {
-  const paths = document.getElementsByClassName(elementName)
-  for (let i = 0; i < paths.length; i++) {
+    let paths = ''
+    if (typeof document !== `undefined`) {
+      paths = document.getElementsByClassName(elementName)
+    } 
+    for (let i = 0; i < paths.length; i++) {
     let rotateObj = rotationParams[i]
     let path = paths[i]
     let currentRotation = 0
@@ -115,8 +124,11 @@ export function rewind(elementName, rotationParams) {
 }
 
 export function setRotationZero(elementName) {
-  const paths = document.getElementsByClassName(elementName)
-  for (let i = 0; i < paths.length; i++) {
+    let paths = ''
+    if (typeof document !== `undefined`) {
+      paths = document.getElementsByClassName(elementName)
+    } 
+    for (let i = 0; i < paths.length; i++) {
     let path = paths[i]
 
     if (path._gsTransform) {
