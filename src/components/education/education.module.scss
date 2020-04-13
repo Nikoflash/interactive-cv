@@ -1,0 +1,40 @@
+.education {
+  &:hover {
+    cursor: pointer;
+  }
+
+  svg {
+    width: 90%;
+  }
+  
+  
+  @media screen and (min-width: 576px) {
+    svg {
+      width: 90%;
+    }
+  }
+  
+  @media screen and (min-width: 720px) {
+    svg {
+      width: 600px;
+    }
+  }
+  
+  @media screen and (min-width: 920px) {
+    svg {
+      width: 600px;
+    }
+  }
+
+  path {
+    stroke-width: 1px;
+    stroke: black;
+  }
+}
+
+.svg-mobile {
+  path {
+    stroke-width: 2px;
+    stroke: black;
+  }
+}

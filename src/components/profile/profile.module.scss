@@ -1,0 +1,32 @@
+.profile-container {
+  width: 100%;
+  
+  svg:hover {
+    cursor: pointer;
+  }
+
+  svg {
+    width: 70%;
+  }
+  
+  
+  @media screen and (min-width: 576px) {
+    svg {
+      width: 450px;
+    }
+  }
+  
+  @media screen and (min-width: 720px) {
+    svg {
+      width: 450px;
+    }
+  }
+  
+  @media screen and (min-width: 920px) {
+    svg {
+      height: 10%;
+    }
+  }
+}
+
+

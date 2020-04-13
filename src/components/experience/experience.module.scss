@@ -1,0 +1,44 @@
+.experience {
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  svg {
+    width: 80%;
+  }
+  
+  
+  @media screen and (min-width: 576px) {
+    svg {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (min-width: 720px) {
+    svg {
+      width: 400px;
+    }
+  }
+  
+  @media screen and (min-width: 920px) {
+    svg {
+      width: 450px;
+    }
+  }
+}
+
+.xp {
+  opacity: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.experience-after {
+  position: absolute;
+  bottom: 0;
+}
