@@ -13,7 +13,7 @@ import menuController from '../controllers/menuController'
 import Slider from '../components/slider'
 
 export default () => {
-  let canHover = ''
+  let canHover = true
   let windowWidth = ''
   let windowHeight = ''
   const [scrollLength] = useState(600)
