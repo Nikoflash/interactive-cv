@@ -23,6 +23,7 @@
     "rc-slider": "^9.2.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-socks": "^2.1.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19"
   },

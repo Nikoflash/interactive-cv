@@ -10,22 +10,23 @@ import ExperienceDesktop from '../components/experience/indexDesktop'
 import ExperienceMobile from '../components/experience/indexMobile'
 import {TweenLite} from 'gsap/TweenMax'
 import menuController from '../controllers/menuController'
-import Slider from '../components/slider'
+import  { Breakpoint, BreakpointProvider } from 'react-socks'
 
 export default () => {
   let canHover = true
-  let windowWidth = ''
-  let windowHeight = ''
+  let windowWidth = 0
+  let windowHeight = 0
   const [scrollLength] = useState(600)
   const [mouseDownId, setMouseDownId] = useState('')
-  
-  if (typeof window !== `undefined`) {
-    canHover = window.matchMedia('(hover: hover)').matches
-    windowWidth = window.innerWidth
-    windowHeight = window.innerHeight
-  }
 
   useEffect(() => {    
+
+    if (typeof window !== `undefined`) {
+      canHover = window.matchMedia('(hover: hover)').matches
+      windowWidth = window.innerWidth
+      windowHeight = window.innerHeight
+    }
+
     let menu = document.getElementById('menu')
     let epre = document.getElementById('epre')
     let ec = document.getElementById('ec')
@@ -62,27 +63,24 @@ export default () => {
 
   if (canHover) {
     return (
+      <BreakpointProvider>
       <div className={styles.menuContainer}>
         <div id="menu" className={styles.menu}>
-          <ProfileDesktop handleClick={handleClick} />
-          <ExperienceDesktop handleClick={handleClick} />
-          <EducationDesktop handleClick={handleClick} />
-          <PersonalDesktop handleClick={handleClick} />
+          <Breakpoint className={styles.breakpoint} customQuery="(min-width: 577px)">
+            <ProfileDesktop handleClick={handleClick} />
+            <ExperienceDesktop handleClick={handleClick} />
+            <EducationDesktop handleClick={handleClick} />
+            <PersonalDesktop handleClick={handleClick} />
+          </Breakpoint>
+          <Breakpoint className={styles.breakpoint} customQuery="(max-width: 576px)">
+            <ProfileMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
+            <ExperienceMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
+            <EducationMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
+            <PersonalMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
+          </Breakpoint>
         </div>
       </div>
-    )
-  } else if (!canHover) {
-    return (
-      <div id="menu" className={styles.index}>
-        <ProfileMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
-        <ExperienceMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
-        <EducationMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
-        <PersonalMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
-      </div>
-    )
-  } else {
-    return (
-      <div></div>
+      </BreakpointProvider>
     )
   }
 }

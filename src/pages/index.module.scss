@@ -1,6 +1,8 @@
 .menu-container {
-  display: flex;
-  justify-content: center;
+  @media screen and (min-width: 576px) {
+    display: flex;
+    justify-content: center;
+  }  
 }
 
 .menu {
@@ -8,4 +10,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.breakpoint {
+  width: 100%;
 }
