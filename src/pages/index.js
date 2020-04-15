@@ -40,11 +40,8 @@ export default () => {
     TweenLite.set(epre, { css: { marginTop: `${marginY}` }})
     TweenLite.set(ec, { css: { marginTop: `${marginY}` }})
     TweenLite.set(pn, { css: { marginTop: `${marginY}` }})
-  }, [])
-
-  useEffect(() => {    
     TweenLite.to('#menu', 1, { css: { opacity: 1} });
-  })
+  }, [])
 
 
   const handleClick = (e) => {
@@ -74,7 +71,7 @@ export default () => {
         </div>
       </div>
     )
-  } else {
+  } else if (!canHover) {
     return (
       <div id="menu" className={styles.index}>
         <ProfileMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
@@ -82,6 +79,10 @@ export default () => {
         <EducationMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
         <PersonalMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
       </div>
+    )
+  } else {
+    return (
+      <div></div>
     )
   }
 }
