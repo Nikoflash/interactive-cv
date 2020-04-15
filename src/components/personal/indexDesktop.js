@@ -46,12 +46,13 @@ export default ({handleClick}) => {
 
   return (
     <div id="pn" className={styles.personalContainer}>
-      <svg onClick={handleClick} className={`svg-personal ${styles.personal}`} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 1164 220" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <svg className={`svg-personal ${styles.personal}`} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 1164 220" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g>
           <PersonalTopLeft ptlRef={ptlRef} pos={pos} />
           <PersonalTopRight ptrRef={ptrRef} pos={pos} />
           <PersonalBottomRight pbrRef={pbrRef} pos={pos} />
           <PersonalBottomLeft pblRef={pblRef} pos={pos} />
+          <rect id="personalButton" className={styles.button} x="0" y="0" width="100%" height="100%" onClick={handleClick} />
         </g>
       </svg>
     </div>

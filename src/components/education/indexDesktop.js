@@ -79,7 +79,7 @@ export default({handleClick}) => {
   }
 
   return <div id="ec" className={styles.education}>
-  <svg onClick={handleClick} className="svg-education" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <svg className="svg-education" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(1,0)">
       <LeftGutter />
       <LetterE />
@@ -93,6 +93,7 @@ export default({handleClick}) => {
       <LetterN />
       <RightGutter />
     </g>
+    <rect id="educationButton" className={styles.button} x="0" y="0" width="100%" height="100%" onMouseDown={handleClick} />
   </svg>
 </div>
 }

@@ -1,4 +1,9 @@
 .education {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
   &:hover {
     cursor: pointer;
   }
@@ -37,4 +42,11 @@
     stroke-width: 2px;
     stroke: black;
   }
+}
+
+.button {
+  stroke:#fff;
+  fill:#fff;
+  fill-opacity:0;
+  stroke-opacity:0;
 }

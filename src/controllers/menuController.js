@@ -1,13 +1,12 @@
 import {TimelineLite} from 'gsap/TweenMax'
 import { navigate } from 'gatsby'
 
-export default (menuItem) => {
+export default (mouseDownId, mouseUpId) => {
 
   const profile = new TimelineLite({paused: true})
   const experience = new TimelineLite({paused: true})
   const education = new TimelineLite({paused: true})
   const personal = new TimelineLite({paused: true})
-
 
   profile.to('#pf, #epre, #ec, #pn', 0.5, { 
     css: { opacity: 0 },
@@ -29,19 +28,19 @@ export default (menuItem) => {
     onComplete: personalPage
   })
 
-  if (menuItem.parentElement.id === 'pf' ) {
+  if (mouseDownId === mouseUpId && mouseDownId ==='profileButton') {
     profile.play()
   }
 
-  if (menuItem.parentElement.id === 'epre' ) {
+  if (mouseDownId === mouseUpId && mouseDownId === 'experienceButton') {
     experience.play()
   }
 
-  if (menuItem.parentElement.id === 'ec' ) {
+  if (mouseDownId === mouseUpId && mouseDownId === 'educationButton') {
     education.play()
   }
 
-  if (menuItem.parentElement.id === 'pn' ) {
+  if (mouseDownId === mouseUpId && mouseDownId === 'personalButton') {
     personal.play()
   }
 }

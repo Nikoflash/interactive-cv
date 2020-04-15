@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './education.module.scss'
 import {rotationAnimation} from './educationAnimationMobile'
 import LeftGutter from './LeftGutter'
@@ -12,8 +12,11 @@ import LetterI, {iParams} from './LetterI'
 import LetterO, {oParams} from './LetterO'
 import LetterN, {nParams} from './LetterN'
 import RightGutter from './RightGutter'
+import Slider from '../slider'
 
-export default({handleTouch, pageY, scrollLength}) => {
+export default({handleTouchStart, handleTouchEnd, scrollLength}) => {
+
+  const [pageY, setPageY] = useState(0)
 
   rotationAnimation('rotateE', eParams, 0, pageY, scrollLength)
   rotationAnimation('rotateD', dParams, 0.05, pageY, scrollLength)
@@ -26,7 +29,7 @@ export default({handleTouch, pageY, scrollLength}) => {
   rotationAnimation('rotateN', nParams, 0.4, pageY, scrollLength)
   
   return <div id="ec" className={styles.education}>
-  <svg onTouchEnd={handleTouch} className={styles.svgMobile} viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <svg className={styles.svgMobile} viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(1,0)">
       <LeftGutter />
       <LetterE />
@@ -40,6 +43,8 @@ export default({handleTouch, pageY, scrollLength}) => {
       <LetterN />
       <RightGutter />
     </g>
+    <rect id="educationButton" className={styles.button} x="0" y="0" width="100%" height="100%" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} />
   </svg>
+  <Slider setPageY={setPageY} scrollLength={scrollLength} step={60}/>
 </div>
 }

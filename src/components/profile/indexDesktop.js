@@ -38,7 +38,7 @@ export default ({handleClick}) => {
 
 
   return <div id="pf" className={styles.profileContainer}>
-    <svg onClick={handleClick} className="svg-profile" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 533 132" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <svg className="svg-profile" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 533 132" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <LetterP transform="11,1" />
       <LetterR transform="103,1" />
       <LetterO transform="185,1" />
@@ -46,6 +46,7 @@ export default ({handleClick}) => {
       <LetterI transform="355,1" />
       <LetterL transform="403,1" />
       <LetterE transform="486,1" />
+      <rect id="profileButton" className={styles.button} x="0" y="0" width="100%" height="100%" onClick={handleClick} />
     </svg>
   </div>
 }

@@ -1,6 +1,9 @@
 .profile-container {
-  width: 100%;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    
   svg:hover {
     cursor: pointer;
   }
@@ -28,5 +31,13 @@
     }
   }
 }
+
+.button {
+  stroke:#fff;
+  fill:#fff;
+  fill-opacity:0;
+  stroke-opacity:0;
+}
+
 
 

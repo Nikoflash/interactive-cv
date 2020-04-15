@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {TweenMax, Power2} from "gsap/TweenMax";
 import styles from './profile.module.scss'
 import LetterP, {pCoords, setLetterP} from './LetterP'
@@ -8,8 +8,11 @@ import LetterF, {fCoords, setLetterF} from './LetterF'
 import LetterI from './LetterI'
 import LetterL, {lCoords, setLetterL} from './LetterL'
 import LetterE, {eCoords, setLetterE} from './LetterE'
+import Slider from '../slider'
 
-export default ({handleTouch, pageY, scrollLength}) => { 
+export default ({handleTouchStart, handleTouchEnd, scrollLength}) => { 
+
+  const [pageY, setPageY] = useState(0)
 
   useEffect(() => {
     letterPGrow(pageY, scrollLength)
@@ -18,10 +21,10 @@ export default ({handleTouch, pageY, scrollLength}) => {
     letterFGrow(pageY, scrollLength)
     letterLGrow(pageY, scrollLength)
     letterEGrow(pageY, scrollLength)
-  }, [pageY])
+  }, [pageY, scrollLength])
 
   return <div id="pf" className={styles.profileContainer}>
-    <svg onTouchEnd={handleTouch} className="svg-profile" viewBox="0 0 533 132" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <svg className="svg-profile" viewBox="0 0 533 132" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <LetterP transform="11,1" />
       <LetterR transform="103,1" />
       <LetterO transform="185,1" />
@@ -29,7 +32,9 @@ export default ({handleTouch, pageY, scrollLength}) => {
       <LetterI transform="355,1" />
       <LetterL transform="403,1" />
       <LetterE transform="486,1" />
+      <rect id="profileButton" className={styles.button} x="0" y="0" width="100%" height="100%" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} />
     </svg>
+    <Slider setPageY={setPageY} scrollLength={scrollLength}/>
   </div>
 }
 

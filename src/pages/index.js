@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react"
 import styles from './index.module.scss'
-import Menu from '../components/menu'
 import PersonalDesktop from '../components/personal/indexDesktop'
 import PersonalMobile from '../components/personal/indexMobile'
 import ProfileDesktop from '../components/profile/indexDesktop'
@@ -11,22 +10,19 @@ import ExperienceDesktop from '../components/experience/indexDesktop'
 import ExperienceMobile from '../components/experience/indexMobile'
 import {TweenLite} from 'gsap/TweenMax'
 import menuController from '../controllers/menuController'
+import Slider from '../components/slider'
 
 export default () => {
   let canHover = ''
+  let windowWidth = ''
   let windowHeight = ''
+  const [scrollLength] = useState(600)
+  const [mouseDownId, setMouseDownId] = useState('')
   
   if (typeof window !== `undefined`) {
     canHover = window.matchMedia('(hover: hover)').matches
+    windowWidth = window.innerWidth
     windowHeight = window.innerHeight
-  }
-
-  const [pageY, setPageY] = useState(0)
-  const scrollLength = 500
-  
-  const handleScroll = () => {
-    let wy = window.pageYOffset
-    setPageY(wy)
   }
 
   useEffect(() => {    
@@ -36,7 +32,9 @@ export default () => {
     let pn = document.getElementById('pn')
 
     let menuHeight = menu.clientHeight
-    let spaceY = (windowHeight - menuHeight + 82)
+    let spaceY = 0
+    if (windowWidth < 800 ) { spaceY = (windowHeight - menuHeight) }
+    else { spaceY = (windowHeight - menuHeight + 82) }
     let marginY = spaceY / 5
     TweenLite.set(menu, { css: { margin: `${marginY} 0` }})
     TweenLite.set(epre, { css: { marginTop: `${marginY}` }})
@@ -44,40 +42,45 @@ export default () => {
     TweenLite.set(pn, { css: { marginTop: `${marginY}` }})
   }, [])
 
-  useEffect(() => {
-    let menuContainerOuter = document.getElementById('menu-container-outer')
-    let menuContainerInner = document.getElementById('menu-container-inner')
-    let menuContainerHeight = windowHeight + scrollLength
-    TweenLite.set(menuContainerOuter, { css: { height: windowHeight} });
-    TweenLite.set(menuContainerInner, { css: { height: menuContainerHeight} });
-    window.addEventListener('scroll', handleScroll)
-    TweenLite.to('#page-index', 1, { css: { opacity: 1} });
+  useEffect(() => {    
+    TweenLite.to('#menu', 1, { css: { opacity: 1} });
   })
 
-  const handleClickMenuItem = (e) => {
-    menuController(e.target)
+
+  const handleClick = (e) => {
+    menuController(e.target.id, e.target.id)
+  }
+
+  const handleMouseDown = (e) => {
+    setMouseDownId(e.target.id)
+  }
+  
+  const handleMouseUp = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    var changedTouch = e.changedTouches[0];
+    var elem = document.elementFromPoint(changedTouch.clientX, changedTouch.clientY)
+    menuController(mouseDownId, elem.id)
   }
 
   if (canHover) {
     return (
-      <div id="page-index" className={styles.index}>
-        <Menu>
-          <ProfileDesktop handleClick={handleClickMenuItem} />
-          <ExperienceDesktop handleClick={handleClickMenuItem} />
-          <EducationDesktop handleClick={handleClickMenuItem} />
-          <PersonalDesktop handleClick={handleClickMenuItem} />
-        </Menu>
+      <div className={styles.menuContainer}>
+        <div id="menu" className={styles.menu}>
+          <ProfileDesktop handleClick={handleClick} />
+          <ExperienceDesktop handleClick={handleClick} />
+          <EducationDesktop handleClick={handleClick} />
+          <PersonalDesktop handleClick={handleClick} />
+        </div>
       </div>
     )
   } else {
     return (
-      <div id="page-index" className={styles.index}>
-        <Menu>
-          <ProfileMobile handleTouch={handleClickMenuItem} pageY={pageY} scrollLength={scrollLength} />
-          <ExperienceMobile handleTouch={handleClickMenuItem} pageY={pageY} scrollLength={scrollLength} />
-          <EducationMobile handleTouch={handleClickMenuItem} pageY={pageY} scrollLength={scrollLength} />
-          <PersonalMobile handleTouch={handleClickMenuItem} pageY={pageY} scrollLength={scrollLength} />
-        </Menu>
+      <div id="menu" className={styles.index}>
+        <ProfileMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
+        <ExperienceMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
+        <EducationMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
+        <PersonalMobile handleTouchStart={handleMouseDown} handleTouchEnd={handleMouseUp} scrollLength={scrollLength} />
       </div>
     )
   }

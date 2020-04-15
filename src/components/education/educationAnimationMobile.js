@@ -1,11 +1,11 @@
-import {TweenMax} from "gsap/TweenMax"
+import {TweenLite, Power2} from "gsap/TweenMax"
 
 export function rotationAnimation(elementName, rotationParams, delay, pageY, scrollLength) {
     let paths = ''
     if (typeof document !== `undefined`) {
       paths = document.getElementsByClassName(elementName)
     }
-  for (let i = 0; i < paths.length; i++) {
+    for (let i = 0; i < paths.length; i++) {
     let rotateObj = rotationParams[i]
     let degs = (rotateObj.rotation/scrollLength)*pageY
     let path = paths[i]
@@ -25,9 +25,10 @@ export function rotationAnimation(elementName, rotationParams, delay, pageY, scr
         console.log('Please set origin param for ' + path)    
     }
 
-    TweenMax.to(path, 0.8, {
+    TweenLite.to(path, 1, {
       rotation: degs, 
-      transformOrigin: origin
+      transformOrigin: origin,
+      ease: Power2.easeOut
     })
   }
 }

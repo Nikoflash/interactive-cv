@@ -1,8 +1,11 @@
-import React, {useRef, useLayoutEffect} from 'react'
+import React, {useRef, useLayoutEffect, useState} from 'react'
 import styles from "./personal.module.scss"
 import {TimelineMax, Power2} from "gsap/TweenMax";
+import Slider from '../slider'
 
-export default ({handleTouch, pageY, scrollLength}) => {
+export default ({handleTouchStart, handleTouchEnd, scrollLength}) => {
+
+  const [pageY, setPageY] = useState(0)
 
   const ptlRef = useRef(null)
   const ptrRef = useRef(null)
@@ -37,18 +40,20 @@ export default ({handleTouch, pageY, scrollLength}) => {
     ptrAnimRef.current = new TimelineMax().to(ptrRef.current, 0.5, {x: 330-((123/scrollLength)*pageY), y: (66/scrollLength)*pageY, ease: Power2.easeOut})
     pbrAnimRef.current = new TimelineMax().to(pbrRef.current, 0.5, {x: 330-((123/scrollLength)*pageY), y: 110-((44/scrollLength)*pageY), ease: Power2.easeOut})
     pblAnimRef.current = new TimelineMax().to(pblRef.current, 0.5, {x: ((119/scrollLength)*pageY)+88, y: 110-((44/scrollLength)*pageY), ease: Power2.easeOut})
-  }, [pageY])
+  }, [pageY, scrollLength])
 
   return (
     <div id="pn" className={styles.personalContainer}>
-      <svg onTouchEnd={handleTouch} className={`svg-personal ${styles.personal}`} viewBox="0 0 1076 220" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <svg className={`svg-personal ${styles.personal}`} viewBox="0 0 1076 220" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(-44,0)">
           <PersonalTopLeft ptlRef={ptlRef} pos={pos} />
           <PersonalTopRight ptrRef={ptrRef} pos={pos} />
           <PersonalBottomRight pbrRef={pbrRef} pos={pos} />
           <PersonalBottomLeft pblRef={pblRef} pos={pos} />
+          <rect id="personalButton" className={styles.button} x="0" y="0" width="100%" height="100%" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} />
         </g>
       </svg>
+      <Slider setPageY={setPageY} scrollLength={scrollLength}/>
     </div>
   )
 }

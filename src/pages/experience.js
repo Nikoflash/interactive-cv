@@ -31,7 +31,7 @@ export default () => {
 
         <p>- Responsible for the technical implementation of SEO - lazy loading, image compression, AMP, structured data</p>
 
-        <p>- Choosing the right technology and implementing bigger projects like <a href="https://www.billy.dk/send-faktura-gratis/" target="_blank">billy.dk/send-faktura-gratis</a></p>
+        <p>- Choosing the right technology and implementing bigger projects like <a href="https://www.billy.dk/send-faktura-gratis/" target="_blank" rel="noopener noreferrer">billy.dk/send-faktura-gratis</a></p>
 
         <div className={styles.header}>
           <b>Front-end internship</b>

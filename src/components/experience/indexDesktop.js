@@ -103,7 +103,7 @@ export default ({handleClick}) => {
     t8.progress(1, false);
     t9.progress(1, false);
     t10.progress(1, false);
-  }, [])
+  })
 
   const onEnter = () => {
     t1.reverse().timeScale(4)
@@ -133,25 +133,25 @@ export default ({handleClick}) => {
 
   return (
     <div id="epre" className={styles.experience}>
-      <svg onClick={handleClick} id="xp" className={styles.xp} onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} viewBox="0 0 510 95" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <svg id="xp" className={styles.xp} onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} viewBox="0 0 510 95" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round">
           <g  transform="translate(1.000000, 2.000000)" stroke="#000000" strokeWidth="3">
-            <g id="E" transform="translate(0.000000, 9.000000)">
+            <g transform="translate(0.000000, 9.000000)">
               <path d="M1,1 L41,1" id="xp-e12"></path>
               <path d="M1,41 L41,41" id="xp-e13"></path>
               <path d="M1,81 L41,81"></path>
               <path d="M1,1 L1,81" id="xp-e11"></path>
             </g>
-            <g id="X" transform="translate(55.500000, 0.000000)">
+            <g transform="translate(55.500000, 0.000000)">
               <path d="M0.5,90 L0.5,0" id="xp-x1"></path>
               <path d="M41.5,90 L41.5,0" id="xp-x2"></path>
             </g>
-            <g id="P" id="xp-p" transform="translate(110.000000, 10.000000)">
+            <g id="xp-p" transform="translate(110.000000, 10.000000)">
               <path d="M0.485009346,35.2586419 L47.6019804,42.7413581" transform="translate(24.043495, 39.000000) scale(-1, 1) rotate(24.000000) translate(-24.043495, -39.000000) "></path>
               <path d="M0.441514487,9.25864191 L47.5584855,16.7413581" transform="translate(24.000000, 13.000000) rotate(24.000000) translate(-24.000000, -13.000000) "></path>
               <path d="M4,-4.54747351e-13 L4,80"></path>
             </g>
-            <g id="E" transform="translate(165.000000, 9.000000)">
+            <g transform="translate(165.000000, 9.000000)">
               <path d="M1,1 L41,1" id="xp-e22"></path>
               <path d="M1,41 L41,41" id="xp-e23"></path>
               <path d="M1,81 L41,81"></path>
@@ -165,10 +165,10 @@ export default ({handleClick}) => {
             <g transform="translate(217.908249, 9.500000)">
               <path id="xp-r1" d="M42.8401331,80.5 L42.8401331,33.5"></path>
             </g>
-            <g id="I" transform="translate(277.000000, 9.000000)">
+            <g transform="translate(277.000000, 9.000000)">
               <path id="xp-i" d="M1,0 L1,82"></path>
             </g>
-            <g id="E" transform="translate(296.000000, 9.000000)">
+            <g transform="translate(296.000000, 9.000000)">
               <path d="M1,1 L41,1" id="xp-e32"></path>
               <path d="M1,41 L41,41" id="xp-e33"></path>
               <path d="M1,81 L41,81"></path>
@@ -185,7 +185,7 @@ export default ({handleClick}) => {
               <path d="M34,80 L0,40"></path>
               <path d="M0,40 L33.5,0"></path>
             </g>
-            <g id="E" transform="translate(466.000000, 9.000000)">
+            <g transform="translate(466.000000, 9.000000)">
               <path d="M1,1 L41,1" id="xp-e42"></path>
               <path d="M1,41 L41,41" id="xp-e43"></path>
               <path d="M1,81 L41,81"></path>
@@ -193,6 +193,7 @@ export default ({handleClick}) => {
             </g>
           </g>
         </g>
+        <rect id="experienceButton" className={styles.button} x="0" y="0" width="100%" height="100%" onClick={handleClick} />
       </svg>
     </div>
   )
