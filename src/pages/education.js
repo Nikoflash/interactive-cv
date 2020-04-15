@@ -8,7 +8,7 @@ export default () => {
     TweenLite.to('#page-education', 1, {
       css: { opacity: 1 }
     })
-  })
+  }, [])
 
   return (
     <div id="page-education" className={styles.page}>

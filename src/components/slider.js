@@ -5,7 +5,7 @@ import styles from './slider.module.scss'
 
 export default ({setPageY, step}) => {
 
-  if (step == undefined) {
+  if (step === undefined) {
     step = 60
   }
 
