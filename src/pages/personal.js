@@ -5,7 +5,7 @@ import {TweenLite} from 'gsap/TweenMax'
 export default () => {
 
   useEffect(() => {
-    TweenLite.to('#page-personal', 1, {
+    TweenLite.to('#page-personal', 0.5, {
       css: { opacity: 1 }
     })
   }, [])
