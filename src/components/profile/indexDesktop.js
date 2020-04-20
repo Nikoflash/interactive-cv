@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {TweenMax, Power2} from "gsap/TweenMax";
 import styles from './profile.module.scss'
 import LetterP, {pCoords, setLetterP} from './LetterP'
@@ -11,13 +11,17 @@ import LetterE, {eCoords, setLetterE} from './LetterE'
 
 export default ({handleClick}) => { 
 
-  letterPSet()
-  letterRSet()
-  letterOSet()
-  letterFSet()
-  letterLSet()
-  letterESet()
- 
+  const [disableLeave, setDisableLeave] = useState(false)
+
+  useEffect(() => {
+    letterPSet()
+    letterRSet()
+    letterOSet()
+    letterFSet()
+    letterLSet()
+    letterESet()
+  })
+  
   const mouseEnter = () => {
     letterPGrow()
     letterRGrow()
@@ -28,12 +32,19 @@ export default ({handleClick}) => {
   }
 
   const mouseLeave = () => {
-    letterPShrink()
-    letterRShrink()
-    letterOShrink()
-    letterFShrink()
-    letterLShrink()
-    letterEShrink()
+    if (!disableLeave) {
+      letterPShrink()
+      letterRShrink()
+      letterOShrink()
+      letterFShrink()
+      letterLShrink()
+      letterEShrink()
+    }
+  }
+
+  const onClick = (e) => {
+    setDisableLeave(true)
+    handleClick(e)
   }
 
 
@@ -46,7 +57,7 @@ export default ({handleClick}) => {
       <LetterI transform="355,1" />
       <LetterL transform="403,1" />
       <LetterE transform="486,1" />
-      <rect id="profileButton" className={styles.button} x="0" y="0" width="100%" height="100%" onClick={handleClick} />
+      <rect id="profileButton" className={styles.button} x="0" y="0" width="100%" height="100%" onClick={onClick} />
     </svg>
   </div>
 }
