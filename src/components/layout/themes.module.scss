@@ -1,0 +1,68 @@
+.theme-light,
+.theme-light-profile, 
+.theme-light-experience,
+.theme-light-education,
+.theme-light-personal {
+  color: black;
+  background-color: white;
+}
+
+.theme-dark,
+.theme-dark-profile, 
+.theme-dark-experience,
+.theme-dark-education,
+.theme-dark-personal {
+  color: white;
+  background-color: black;
+}
+
+.theme-light-profile,
+.theme-light-experience,
+.theme-light-education {
+  svg {
+    stroke: black
+  }
+}
+
+.theme-dark-profile,
+.theme-dark-experience,
+.theme-dark-education {
+  svg {
+    stroke: white
+  }
+}
+
+.theme-dark-profile,
+.theme-dark-education {
+  svg,
+  path {
+    stroke-width: 2px;
+  }
+}
+
+.theme-light-education {
+  svg,
+  path {
+    stroke-width: 2px;
+
+    @media screen and (min-width: 992px) {
+      stroke-width: 1px;
+    }
+  }
+}
+
+.theme-light-personal {
+  fill: black;
+}
+
+.theme-dark-personal {
+  fill: white;
+}
+
+.theme-desktop-light {
+  background-color: white;
+}
+
+.theme-desktop-dark {
+  background-color: black;
+}

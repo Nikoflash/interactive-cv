@@ -68,7 +68,7 @@ export default ({transform}) => {
   })
   
   return (
-    <g fill="none" stroke="#000000" strokeWidth="1" transform={`translate(${transform})`}> 
+    <g fill="none" strokeWidth="1" transform={`translate(${transform})`}> 
       <path id="letterE"
         d={`M0,0 
         h${eCoords.side1} q${eCoords.corner1X1},${eCoords.corner1Y1} ${eCoords.corner1X2},${eCoords.corner1Y2} 

@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styles from './education.module.scss'
-import {rotationAnimation} from './educationAnimationMobile'
+import {rotationAnimation, reverseRotationAnimation} from './educationAnimations'
 import LeftGutter from './LeftGutter'
 import LetterE, {eParams} from './LetterE'
 import LetterD, {dParams} from './LetterD'
@@ -12,24 +12,35 @@ import LetterI, {iParams} from './LetterI'
 import LetterO, {oParams} from './LetterO'
 import LetterN, {nParams} from './LetterN'
 import RightGutter from './RightGutter'
-import Slider from '../slider'
 
-export default({handleTouchStart, handleTouchEnd, scrollLength}) => {
+export const onEnterEducation = () => {
+  rotationAnimation('rotateE', eParams, 0)
+  rotationAnimation('rotateD', dParams, 0.05)
+  rotationAnimation('rotateU', uParams, 0.1)
+  rotationAnimation('rotateC', cParams, 0.15)
+  rotationAnimation('rotateA', aParams, 0.2)
+  rotationAnimation('rotateT', tParams, 0.25)
+  rotationAnimation('rotateI', iParams, 0.3)
+  rotationAnimation('rotateO', oParams, 0.35)
+  rotationAnimation('rotateN', nParams, 0.4)
+}
 
-  const [pageY, setPageY] = useState(0)
+export const onLeaveEducation = () => {
+  reverseRotationAnimation('rotateE', eParams)
+  reverseRotationAnimation('rotateD', dParams)
+  reverseRotationAnimation('rotateU', uParams)
+  reverseRotationAnimation('rotateC', cParams)
+  reverseRotationAnimation('rotateA', aParams)
+  reverseRotationAnimation('rotateT', tParams)
+  reverseRotationAnimation('rotateI', iParams)
+  reverseRotationAnimation('rotateO', oParams)
+  reverseRotationAnimation('rotateN', nParams)
+}
 
-  rotationAnimation('rotateE', eParams, 0, pageY, scrollLength)
-  rotationAnimation('rotateD', dParams, 0.05, pageY, scrollLength)
-  rotationAnimation('rotateU', uParams, 0.1, pageY, scrollLength)
-  rotationAnimation('rotateC', cParams, 0.15, pageY, scrollLength)
-  rotationAnimation('rotateA', aParams, 0.2, pageY, scrollLength)
-  rotationAnimation('rotateT', tParams, 0.25, pageY, scrollLength)
-  rotationAnimation('rotateI', iParams, 0.3, pageY, scrollLength)
-  rotationAnimation('rotateO', oParams, 0.35, pageY, scrollLength)
-  rotationAnimation('rotateN', nParams, 0.4, pageY, scrollLength)
-  
-  return <div id="ec" className={styles.education}>
-  <svg className={styles.svgMobile} viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
+export default() => {
+
+  return <div id="education" className={`svg-element ${styles.education}`}>
+  <svg className="svg-education" viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(1,0)">
       <LeftGutter />
       <LetterE />
@@ -43,8 +54,6 @@ export default({handleTouchStart, handleTouchEnd, scrollLength}) => {
       <LetterN />
       <RightGutter />
     </g>
-    <rect id="educationButton" className={styles.button} x="0" y="0" width="100%" height="100%" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} />
   </svg>
-  <Slider setPageY={setPageY} scrollLength={scrollLength} step={60}/>
 </div>
 }

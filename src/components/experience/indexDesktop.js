@@ -1,18 +1,26 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import styles from './experience.module.scss'
 import {TweenMax, Bounce, Power2, TimelineMax} from "gsap/TweenMax"
+import themes from '../layout/themes.module.scss'
+import {GlobalStateContext} from '../../context/globalContextProvider'
+let t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 = {}
+
 
 export default ({handleClick}) => {
-  var t1 = new TimelineMax({paused: true})
-  var t2 = new TimelineMax({paused: true})
-  var t3 = new TimelineMax({paused: true})
-  var t4 = new TimelineMax({paused: true})
-  var t5 = new TimelineMax({paused: true})
-  var t6 = new TimelineMax({paused: true})
-  var t7 = new TimelineMax({paused: true})
-  var t8 = new TimelineMax({paused: true})
-  var t9 = new TimelineMax({paused: true})
-  var t10 = new TimelineMax({paused: true})
+  const theme = useContext(GlobalStateContext).theme
+
+  useEffect(() => {
+    t1 = new TimelineMax({paused: true})
+    t2 = new TimelineMax({paused: true})
+    t3 = new TimelineMax({paused: true})
+    t4 = new TimelineMax({paused: true})
+    t5 = new TimelineMax({paused: true})
+    t6 = new TimelineMax({paused: true})
+    t7 = new TimelineMax({paused: true})
+    t8 = new TimelineMax({paused: true})
+    t9 = new TimelineMax({paused: true})
+    t10 = new TimelineMax({paused: true})
+  }, [])
 
   useEffect(() => {
     TweenMax.set('#xp-x1', { rotation: 27, transformOrigin: '0 100%' });
@@ -103,7 +111,7 @@ export default ({handleClick}) => {
     t8.progress(1, false);
     t9.progress(1, false);
     t10.progress(1, false);
-  })
+  }, [])
 
   const onEnter = () => {
     t1.reverse().timeScale(4)
@@ -132,10 +140,10 @@ export default ({handleClick}) => {
   }
 
   return (
-    <div id="epre" className={styles.experience}>
+    <div id="epre" className={`${styles.experience} ${theme ? themes.themeLightExperience : themes.themeDarkExperience}`}>
       <svg id="xp" className={styles.xp} onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} viewBox="0 0 510 95" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round">
-          <g  transform="translate(1.000000, 2.000000)" stroke="#000000" strokeWidth="3">
+        <g fill="none" fillRule="evenodd" strokeLinecap="round">
+          <g  transform="translate(1.000000, 2.000000)" strokeWidth="3">
             <g transform="translate(0.000000, 9.000000)">
               <path d="M1,1 L41,1" id="xp-e12"></path>
               <path d="M1,41 L41,41" id="xp-e13"></path>

@@ -60,7 +60,7 @@ export default ({transform}) => {
   })
   
   return (
-    <g fill="none" stroke="#000000" strokeWidth="1" transform={`translate(${transform})`}> 
+    <g fill="none" strokeWidth="1" transform={`translate(${transform})`}> 
       <path id="letterR"
         d={`M0,0 
         h${rCoords.side1} q${rCoords.corner1X1},${rCoords.corner1Y1} ${rCoords.corner1X2},${rCoords.corner1Y2} 

@@ -9,13 +9,12 @@
   }
 
   svg {
-    width: 90%;
+    width: 95%;
   }
   
-  
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 992px) {
     svg {
-      width: 550px;
+      width: 55px;
     }
   }
   
@@ -29,18 +28,6 @@
     svg {
       width: 600px;
     }
-  }
-
-  path {
-    stroke-width: 1px;
-    stroke: black;
-  }
-}
-
-.svg-mobile {
-  path {
-    stroke-width: 2px;
-    stroke: black;
   }
 }
 

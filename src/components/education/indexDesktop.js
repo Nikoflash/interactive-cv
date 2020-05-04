@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import styles from './education.module.scss'
 import {rotationAnimation, reverseRotationAnimation, rewind, setRotationZero} from './educationAnimations'
 import LeftGutter from './LeftGutter'
@@ -12,8 +12,11 @@ import LetterI, {iParams} from './LetterI'
 import LetterO, {oParams} from './LetterO'
 import LetterN, {nParams} from './LetterN'
 import RightGutter from './RightGutter'
+import themes from '../layout/themes.module.scss'
+import {GlobalStateContext} from '../../context/globalContextProvider'
 
 export default({handleClick}) => {
+  const theme = useContext(GlobalStateContext).theme
 
   const [isActive, setIsActive] = useState(true)
   const [rewindTimeout, setRewindTimeout] = useState()
@@ -78,8 +81,8 @@ export default({handleClick}) => {
     setIsActive(false)
   }
 
-  return <div id="ec" className={styles.education}>
-  <svg className="svg-education" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  return <div id="ec" className={`${styles.education} ${theme ? themes.themeLightEducation : themes.themeDarkEducation}`}>
+  <svg onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(1,0)">
       <LeftGutter />
       <LetterE />

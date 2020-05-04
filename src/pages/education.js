@@ -1,8 +1,11 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import styles from './pages.module.scss'
 import {TweenLite} from 'gsap/TweenMax'
+import themes from '../components/layout/themes.module.scss'
+import {GlobalStateContext} from '../context/globalContextProvider'
 
-export default () => {
+export default ({heading = true, invert = false}) => {
+  const theme = useContext(GlobalStateContext).theme
 
   useEffect(() => {
     TweenLite.to('#page-education', 0.5, {
@@ -10,12 +13,21 @@ export default () => {
     })
   }, [])
 
+  let themeClass
+  if (invert) {
+    themeClass = theme ? themes.themeDark : themes.themeLight
+  } else {
+    themeClass = theme ? themes.themeLight : themes.themeDark
+  }
+
   return (
-    <div id="page-education" className={styles.page}>
-      <div className={styles.container}>
-        <div className={styles.heading}>
-          <h1>Education</h1>
-        </div>
+    <div className={`${styles.page} ${themeClass}`}>
+      <div id="page-education" className={styles.container}>
+        {heading &&
+          <div className={styles.heading}>
+            <h1>Education</h1>
+          </div>
+        }
   
         <div className={styles.education}>
         <div className={styles.header}>

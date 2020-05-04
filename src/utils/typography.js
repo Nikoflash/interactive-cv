@@ -19,6 +19,13 @@ const typography = new Typography({
         '400',
       ],
     },
+    {
+      name: 'Ubuntu',
+      styles: [
+        '300',
+        '400',
+      ],
+    },
   ],
   headerFontFamily: ["Source Sans Pro", "serif"],
   bodyFontFamily: ["Muli", "sans-serif"]

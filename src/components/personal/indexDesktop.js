@@ -1,8 +1,11 @@
-import React, {useRef} from 'react'
+import React, {useRef, useContext} from 'react'
 import styles from "./personal.module.scss"
 import {TimelineMax, Power1, Power3} from "gsap/TweenMax";
+import themes from '../layout/themes.module.scss'
+import {GlobalStateContext} from '../../context/globalContextProvider'
 
 export default ({handleClick}) => {
+  const theme = useContext(GlobalStateContext).theme
 
   const ptlRef = useRef(null)
   const ptrRef = useRef(null)
@@ -45,7 +48,7 @@ export default ({handleClick}) => {
   }
 
   return (
-    <div id="pn" className={styles.personalContainer}>
+    <div id="pn" className={`${styles.personalContainer} ${theme ? themes.themeLightPersonal : themes.themeDarkPersonal}`}>
       <svg className={`svg-personal ${styles.personal}`} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 1164 220" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g>
           <PersonalTopLeft ptlRef={ptlRef} pos={pos} />
@@ -61,7 +64,7 @@ export default ({handleClick}) => {
 
 const PersonalTopLeft = ({ptlRef,pos}) => {
   return (
-    <g ref={ptlRef} id="personal-top-left" transform={`translate(${pos.ptlx}, ${pos.ptly})`}>
+    <g ref={ptlRef} transform={`translate(${pos.ptlx}, ${pos.ptly})`}>
       <rect x="22" y="44" width="20" height="20" rx="4"></rect>
       <rect x="0" y="88" width="20" height="20" rx="4"></rect>
       <rect x="0" y="44" width="20" height="20" rx="4"></rect>
@@ -88,7 +91,7 @@ const PersonalTopLeft = ({ptlRef,pos}) => {
 
 const PersonalTopRight = ({ptrRef, pos}) => {
   return (
-    <g ref={ptrRef} id="personal-top-right" transform={`translate(${pos.ptrx}, ${pos.ptry})`}>
+    <g ref={ptrRef} transform={`translate(${pos.ptrx}, ${pos.ptry})`}>
       <rect x="44" y="44" width="20" height="20" rx="4"></rect>
       <rect x="0" y="0" width="20" height="20" rx="4"></rect>
       <rect x="88" y="22" width="20" height="20" rx="4"></rect>
@@ -116,7 +119,7 @@ const PersonalTopRight = ({ptrRef, pos}) => {
 
 const PersonalBottomRight = ({pbrRef, pos}) => {
   return (
-    <g ref={pbrRef} id="personal-bottom-right" transform={`translate(${pos.pbrx}, ${pos.pbry})`}>
+    <g ref={pbrRef} transform={`translate(${pos.pbrx}, ${pos.pbry})`}>
       <rect x="0" y="66" width="20" height="20" rx="4"></rect>
       <rect x="22" y="0" width="20" height="20" rx="4"></rect>
       <rect x="110" y="44" width="20" height="20" rx="4"></rect>
@@ -142,7 +145,7 @@ const PersonalBottomRight = ({pbrRef, pos}) => {
 
 const PersonalBottomLeft = ({pblRef, pos}) => {
   return (
-    <g ref={pblRef} id="personal-bottom-left" transform={`translate(${pos.pblx}, ${pos.pbly})`}>
+    <g ref={pblRef} transform={`translate(${pos.pblx}, ${pos.pbly})`}>
       <rect x="44" y="22" width="20" height="20" rx="4"></rect>
       <rect x="110" y="0" width="20" height="20" rx="4"></rect>
       <rect x="220" y="44" width="20" height="20" rx="4"></rect>

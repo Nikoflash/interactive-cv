@@ -1,8 +1,11 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import styles from './pages.module.scss'
 import {TweenLite} from 'gsap/TweenMax'
+import themes from '../components/layout/themes.module.scss'
+import {GlobalStateContext} from '../context/globalContextProvider'
 
-export default () => {
+export default ({heading = true, invert = false}) => {
+  const theme = useContext(GlobalStateContext).theme
 
   useEffect(() => {
     TweenLite.to('#page-profile', 0.5, {
@@ -10,13 +13,22 @@ export default () => {
     })
   }, [])
 
+  let themeClass
+  if (invert) {
+    themeClass = theme ? themes.themeDark : themes.themeLight
+  } else {
+    themeClass = theme ? themes.themeLight : themes.themeDark
+  }
+
   return (
-    <div id="page-profile" className={styles.page}>
-      <div className={styles.container}>
-        <div className={styles.heading}>
-          <h1>Profile</h1>
-        </div>
-  
+    <div className={`${styles.page} ${themeClass}`}>
+      <div id="page-profile" className={styles.container}>
+        {heading &&
+          <div className={styles.heading}>
+            <h1>Profile</h1>
+          </div>
+        }
+        
         <div className={styles.body}>
           <p>I am an imaginative and detail oriented front-end developer with an understanding of both back-end and design, and I enjoy working from that position. I’m visually oriented and like to be an active part of the creative process, while maintaining a reflective and analytic approach to my work. I have the ability to focus in depth on a specific task, but I also like being part of a team and the synergy that comes from working with others.</p>
     

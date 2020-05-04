@@ -30,7 +30,7 @@ export default ({transform}) => {
   })
   
   return (
-    <g fill="none" stroke="#000000" strokeWidth="1" transform={`translate(${transform})`}> 
+    <g fill="none" strokeWidth="1" transform={`translate(${transform})`}> 
       <path id="letterO" 
         d={`M0,0 
         h${oCoords.side1} q${oCoords.corner1X1},${oCoords.corner1Y1} ${oCoords.corner1X2},${oCoords.corner1Y2} 

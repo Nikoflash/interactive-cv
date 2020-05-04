@@ -10,9 +10,10 @@
 
   svg {
     width: 100%;
+    padding: 0 20px;
   }
   
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 992px) {
     svg {
       width: 550px;
     }
@@ -29,10 +30,6 @@
       width: 650px;
     }
   }
-}
-
-.personal {
-  fill: #000000;
 }
 
 .button {
