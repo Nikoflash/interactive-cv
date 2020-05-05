@@ -20,14 +20,14 @@ export default () => {
 
   return (
     <BreakpointProvider>
-      <Breakpoint className={`${styles.breakpoint} ${theme ? themes.themeDesktopLight : themes.themeDesktopDark}`} large up>
+      <Breakpoint className={`${styles.breakpoint} ${theme ? themes.themeDesktopLight : themes.themeDesktopDark}`} customQuery="(min-width: 992px)">
         <Header />
         <ProfileDesktop handleClick={handleClick} />
         <ExperienceDesktop handleClick={handleClick} />
         <EducationDesktop handleClick={handleClick} />
         <PersonalDesktop handleClick={handleClick} />
       </Breakpoint>
-      <Breakpoint className={styles.breakpoint} medium down>
+      <Breakpoint className={styles.breakpoint} customQuery="(max-width: 991px)">
         <MobileIndex />
       </Breakpoint>
     </BreakpointProvider>
