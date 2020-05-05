@@ -3,6 +3,7 @@ import styles from './pages.module.scss'
 import {TweenLite} from 'gsap/TweenMax'
 import themes from '../components/layout/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
+import Header from '../components/layout/header'
 
 export default ({heading = true, invert = false}) => {
   const theme = useContext(GlobalStateContext).theme
@@ -22,6 +23,7 @@ export default ({heading = true, invert = false}) => {
 
   return (
     <div className={`${styles.page} ${themeClass}`}>
+      <Header />
       <div id="page-profile" className={styles.container}>
         {heading &&
           <div className={styles.heading}>

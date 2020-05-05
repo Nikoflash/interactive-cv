@@ -1,5 +1,6 @@
 import React, {useContext} from "react"
 import styles from './index.module.scss'
+import themes from '../components/layout/themes.module.scss'
 import PersonalDesktop from '../components/personal/indexDesktop'
 import ProfileDesktop from '../components/profile/indexDesktop'
 import EducationDesktop from '../components/education/indexDesktop'
@@ -7,9 +8,8 @@ import ExperienceDesktop from '../components/experience/indexDesktop'
 import menuController from '../controllers/menuController'
 import { Breakpoint, BreakpointProvider } from 'react-socks'
 import MobileIndex from '../components/mobile/index'
-import themes from '../components/layout/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
-import {Not} from '../components/layout/layoutHeader'
+import Header from '../components/layout/header'
 
 export default () => {
   const theme = useContext(GlobalStateContext).theme
@@ -21,6 +21,7 @@ export default () => {
   return (
     <BreakpointProvider>
       <Breakpoint className={`${styles.breakpoint} ${theme ? themes.themeDesktopLight : themes.themeDesktopDark}`} large up>
+        <Header />
         <ProfileDesktop handleClick={handleClick} />
         <ExperienceDesktop handleClick={handleClick} />
         <EducationDesktop handleClick={handleClick} />

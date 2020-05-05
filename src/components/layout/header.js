@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {GlobalDispatchContext, GlobalStateContext} from '../../context/globalContextProvider'
-import styles from './layout.module.scss'
+import styles from './header.module.scss'
 import { Link } from "gatsby"
 
 export default () => {
@@ -13,7 +13,7 @@ export default () => {
   }
   
   return (
-    <div className={styles.layoutHeader}>
+    <div className={styles.header}>
       <div className={`${styles.logo} ${theme ? styles.logoLight : styles.logoDark}`}>
         <Link to="/">&lt;<span>div</span>&gt;&lt;&#47;<span>dev</span>&gt;</Link>
       </div>
@@ -33,6 +33,7 @@ export const Not = () => {
   const dispatch = useContext(GlobalDispatchContext)
 
   const handleClick = () => {
+    console.log('toggle')
     dispatch({ type: 'TOGGLE_THEME'})
   }
 

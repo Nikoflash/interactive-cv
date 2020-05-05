@@ -11,7 +11,7 @@ import PersonalBody from '../../pages/personal'
 import styles from './index.module.scss'
 import themes from '../layout/themes.module.scss'
 import {GlobalStateContext} from '../../context/globalContextProvider'
-import {Not} from '../layout/layoutHeader'
+import {Not} from '../layout/header'
 
 
 export default () => {
