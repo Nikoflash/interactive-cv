@@ -5,9 +5,18 @@
   align-items: center;
   justify-content: space-around;
   font-family: Ubuntu;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .indent {
   padding-left: 15px;
+}
+
+.dev { 
+  display: flex;
+}
+
+.text-box {
+  width: 200px;
+  height: 120px;
 }
