@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react'
 import styles from './cover.module.scss'
 import {gsap} from 'gsap'
-import {TextPlugin} from 'gsap/TextPlugin'
+import {TextPlugin} from '../../utils/TextPlugin'
 gsap.registerPlugin(TextPlugin);
 
 export default () => {
