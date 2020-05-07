@@ -23,7 +23,10 @@ export default({handleClick}) => {
   const [rotationTimeout, setRotationTimeout] = useState()
 
   useEffect(() => {
-    if(!isActive) {
+    if(isActive) {
+      clearTimeout(rewindTimeout)
+      clearTimeout(rotationTimeout)
+    } else {
       setRewindTimeout(setTimeout(function(){ 
         rewind('rotateE', eParams)
         rewind('rotateD', dParams)
@@ -47,11 +50,6 @@ export default({handleClick}) => {
         setRotationZero('rotateO')
         setRotationZero('rotateN')
       }, 750))
-    }
-
-    if(isActive) {
-      clearTimeout(rewindTimeout)
-      clearTimeout(rotationTimeout)
     }
   }, [isActive])
 
@@ -82,7 +80,7 @@ export default({handleClick}) => {
   }
 
   return <div id="ec" className={`${styles.education} ${theme ? themes.themeLightEducation : themes.themeDarkEducation}`}>
-  <svg onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(1,0)">
       <LeftGutter />
       <LetterE />
@@ -96,7 +94,7 @@ export default({handleClick}) => {
       <LetterN />
       <RightGutter />
     </g>
-    <rect id="educationButton" className={styles.button} x="0" y="0" width="100%" height="100%" onMouseDown={handleClick} />
+    <rect id="educationButton" className={styles.button} x="0" y="0" width="100%" height="100%" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} onMouseDown={handleClick} />
   </svg>
 </div>
 }

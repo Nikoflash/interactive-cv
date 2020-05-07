@@ -41,7 +41,7 @@ export default() => {
       <path d="M75,175 l0,20"></path>
 
       <path d="M100,0 l0,20"></path>
-      <path d="M100,25 l0,20" className="rotateE"></path>
+      <path d="M100,25 l0,20" id="rotateTest" className="rotateE"></path>
       <path d="M100,50 l0,20" className="rotateE"></path>
       <path d="M100,75 l0,20" className="rotateE"></path>
       <path d="M100,100 l0,20" className="rotateE"></path>

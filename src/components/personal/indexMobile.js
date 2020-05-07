@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import styles from './personal.module.scss'
-import {TweenMax, Power3} from 'gsap/TweenMax';
+import {TweenMax, Power3} from 'gsap';
 
 export const onEnterPersonal = () => {
   personalPlay()

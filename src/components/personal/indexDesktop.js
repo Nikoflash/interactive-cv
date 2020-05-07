@@ -1,6 +1,6 @@
 import React, {useRef, useContext} from 'react'
 import styles from "./personal.module.scss"
-import {TimelineMax, Power1, Power3} from "gsap/TweenMax";
+import {gsap, Power1, Power3} from "gsap";
 import themes from '../layout/themes.module.scss'
 import {GlobalStateContext} from '../../context/globalContextProvider'
 
@@ -34,17 +34,17 @@ export default ({handleClick}) => {
   }
   
   const mouseEnter = () => {        
-    ptlAnimRef.current = new TimelineMax().to(ptlRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
-    ptrAnimRef.current = new TimelineMax().to(ptrRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
-    pbrAnimRef.current = new TimelineMax().to(pbrRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
-    pblAnimRef.current = new TimelineMax().to(pblRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
+    ptlAnimRef.current = gsap.to(ptlRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
+    ptrAnimRef.current = gsap.to(ptrRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
+    pbrAnimRef.current = gsap.to(pbrRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
+    pblAnimRef.current = gsap.to(pblRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
   }
 
   const mouseLeave = () => {    
-    ptlAnimRef2.current = new TimelineMax().to(ptlRef.current, 0.5, {x: 0, y: 0, ease: Power1.easeOut})
-    ptrAnimRef2.current = new TimelineMax().to(ptrRef.current, 0.5, {x: 418, y: 0, ease: Power1.easeOut})
-    pbrAnimRef2.current = new TimelineMax().to(pbrRef.current, 0.5, {x: 418, y: 110, ease: Power1.easeOut})
-    pblAnimRef2.current = new TimelineMax().to(pblRef.current, 0.5, {x: 0, y: 110, ease: Power1.easeOut})
+    ptlAnimRef2.current = gsap.to(ptlRef.current, 0.5, {x: 0, y: 0, ease: Power1.easeOut})
+    ptrAnimRef2.current = gsap.to(ptrRef.current, 0.5, {x: 418, y: 0, ease: Power1.easeOut})
+    pbrAnimRef2.current = gsap.to(pbrRef.current, 0.5, {x: 418, y: 110, ease: Power1.easeOut})
+    pblAnimRef2.current = gsap.to(pblRef.current, 0.5, {x: 0, y: 110, ease: Power1.easeOut})
   }
 
   return (

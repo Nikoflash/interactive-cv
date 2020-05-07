@@ -1,4 +1,4 @@
-import {TimelineLite} from 'gsap/TweenMax'
+import {TimelineLite} from 'gsap'
 import { navigate } from 'gatsby'
 
 export default (mouseDownId, mouseUpId) => {

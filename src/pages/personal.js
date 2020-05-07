@@ -1,6 +1,6 @@
 import React, {useEffect, useContext} from 'react'
 import styles from './pages.module.scss'
-import {TweenLite} from 'gsap/TweenMax'
+import {TweenLite} from 'gsap'
 import themes from '../components/layout/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
 import Header from '../components/layout/header'

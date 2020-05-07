@@ -1,55 +1,55 @@
 import React, {useEffect} from 'react'
 import styles from './experience.module.scss'
-import {TweenMax, Bounce, Power2, TimelineMax} from "gsap/TweenMax"
+import {gsap, Bounce, Power2} from "gsap"
 
 let t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 = {}
 
 export const onEnterExperience = () => {
-  t1.reverse().timeScale(4)
-  t2.reverse().timeScale(2.5)
-  t3.reverse().timeScale(2.5)
-  t4.reverse().timeScale(2.5)
-  t5.reverse().timeScale(2.5)
-  t6.reverse().timeScale(2.5)
-  t7.reverse().timeScale(2.5)
-  t8.reverse().timeScale(2.5)
-  t9.reverse().timeScale(2.5)
-  t10.reverse().timeScale(2.5)
+  t1.timeScale(4).reverse()
+  t2.timeScale(2.5).reverse()
+  t3.timeScale(2.5).reverse()
+  t4.timeScale(2.5).reverse()
+  t5.timeScale(2.5).reverse()
+  t6.timeScale(2.5).reverse()
+  t7.timeScale(2.5).reverse()
+  t8.timeScale(2.5).reverse()
+  t9.timeScale(2.5).reverse()
+  t10.timeScale(2.5).reverse()
 }
 
 export const onLeaveExperience = () => {
-  t1.play().timeScale(1.3)
-  t2.play().timeScale(1.3)
-  t3.play().timeScale(1.3)
-  t4.play().timeScale(1.3)
-  t5.play().timeScale(1.3)
-  t6.play().timeScale(1.3)
-  t7.play().timeScale(1.3)
-  t8.play().timeScale(1.3)
-  t9.play().timeScale(1.3)
-  t10.play().timeScale(1.3)
+  t1.timeScale(1.3).play()
+  t2.timeScale(1.3).play()
+  t3.timeScale(1.3).play()
+  t4.timeScale(1.3).play()
+  t5.timeScale(1.3).play()
+  t6.timeScale(1.3).play()
+  t7.timeScale(1.3).play()
+  t8.timeScale(1.3).play()
+  t9.timeScale(1.3).play()
+  t10.timeScale(1.3).play()
 }
 
 export default () => {
 
   useEffect(() => {
-    t1 = new TimelineMax({paused: true})
-    t2 = new TimelineMax({paused: true})
-    t3 = new TimelineMax({paused: true})
-    t4 = new TimelineMax({paused: true})
-    t5 = new TimelineMax({paused: true})
-    t6 = new TimelineMax({paused: true})
-    t7 = new TimelineMax({paused: true})
-    t8 = new TimelineMax({paused: true})
-    t9 = new TimelineMax({paused: true})
-    t10 = new TimelineMax({paused: true})
+    t1 = gsap.timeline({paused: true})
+    t2 = gsap.timeline({paused: true})
+    t3 = gsap.timeline({paused: true})
+    t4 = gsap.timeline({paused: true})
+    t5 = gsap.timeline({paused: true})
+    t6 = gsap.timeline({paused: true})
+    t7 = gsap.timeline({paused: true})
+    t8 = gsap.timeline({paused: true})
+    t9 = gsap.timeline({paused: true})
+    t10 = gsap.timeline({paused: true})
   }, [])
   
   useEffect(() => {
-    TweenMax.set('#xp-x1', { rotation: 27, transformOrigin: '0 100%' });
-    TweenMax.set('#xp-x2', { rotation: -27, transformOrigin: '0 100%' });
-    TweenMax.set('#xp-r1', { rotation: -55, transformOrigin: '0 100%' });
-    TweenMax.set('#xp', { css: { opacity: 1 } });
+    gsap.set('#xp-x1', { rotation: 27, transformOrigin: '0 100%' });
+    gsap.set('#xp-x2', { rotation: -27, transformOrigin: '0 100%' });
+    gsap.set('#xp-r1', { rotation: -55, transformOrigin: '0 100%' });
+    gsap.set('#xp', { css: { opacity: 1 } });
 
     t1.to('#xp-r2', 1, {
       rotation: 18, 
@@ -124,16 +124,16 @@ export default () => {
       delay: 0.1
     })
 
-    t1.progress(1, false);
-    t2.progress(1, false);
-    t3.progress(1, false);
-    t4.progress(1, false);
-    t5.progress(1, false);
-    t6.progress(1, false);
-    t7.progress(1, false);
-    t8.progress(1, false);
-    t9.progress(1, false);
-    t10.progress(1, false);
+    t1.progress(1);
+    t2.progress(1);
+    t3.progress(1);
+    t4.progress(1);
+    t5.progress(1);
+    t6.progress(1);
+    t7.progress(1);
+    t8.progress(1);
+    t9.progress(1);
+    t10.progress(1);
   }, [])
 
   return (

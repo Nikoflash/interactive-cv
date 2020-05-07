@@ -1,4 +1,4 @@
-import {TweenMax, Power2} from "gsap/TweenMax"
+import {gsap, Power2} from "gsap"
 
 export function rotationAnimation(elementName, rotationParams, delay) {
     let paths = ''
@@ -33,7 +33,7 @@ export function rotationAnimation(elementName, rotationParams, delay) {
         console.log('Please set origin param for ' + path)    
     }
 
-    new TweenMax.to(path, 0.8, {
+    gsap.to(path, 0.8, {
       rotation: `+=${degs}`, 
       transformOrigin: origin,
       ease: Power2.easeOut,
@@ -43,6 +43,7 @@ export function rotationAnimation(elementName, rotationParams, delay) {
 }
 
 export function reverseRotationAnimation(elementName, rotationParams) {
+    gsap.killTweensOf(`.${elementName}`);
     let paths = ''
     if (typeof document !== `undefined`) {
       paths = document.getElementsByClassName(elementName)
@@ -50,13 +51,9 @@ export function reverseRotationAnimation(elementName, rotationParams) {
     for (let i = 0; i < paths.length; i++) {
     let rotateObj = rotationParams[i]
     let path = paths[i]
-    let currentRotation = 0
+    let currentRotation = gsap.getProperty(path, 'rotation')
     let origin = ''
     let degs = 0
-    
-    if (path._gsTransform) {
-      currentRotation = path._gsTransform.rotation
-    }
 
     if (currentRotation !== 0 ) {
       degs = 360 - currentRotation
@@ -76,7 +73,7 @@ export function reverseRotationAnimation(elementName, rotationParams) {
         console.log('Please set origin param for ' + path)
     }
 
-    new TweenMax.to(path, 0.7, {
+    gsap.to(path, 0.7, {
       rotation: `+=${degs}`, 
       transformOrigin: origin,
       ease: Power2.easeOut
@@ -92,12 +89,8 @@ export function rewind(elementName, rotationParams) {
     for (let i = 0; i < paths.length; i++) {
     let rotateObj = rotationParams[i]
     let path = paths[i]
-    let currentRotation = 0
+    let currentRotation = gsap.getProperty(path, 'rotation')
     let origin = ''
-    
-    if (path._gsTransform) {
-      currentRotation = path._gsTransform.rotation
-    }
 
     switch(rotateObj.origin) {
       case 'top':
@@ -113,8 +106,8 @@ export function rewind(elementName, rotationParams) {
         console.log('Please set origin param for ' + path)
     }
 
-    if (path._gsTransform && currentRotation !== 0) {
-      new TweenMax.to(path, 0.7, {
+    if (currentRotation !== 0) {
+      gsap.to(path, 0.7, {
         rotation: '0_short', 
         transformOrigin: origin,
         ease: Power2.easeOut
@@ -130,10 +123,11 @@ export function setRotationZero(elementName) {
     } 
     for (let i = 0; i < paths.length; i++) {
     let path = paths[i]
+    let currentRotation = gsap.getProperty(path, 'rotation')
 
-    if (path._gsTransform) {
-      if (isAtStartingPoint(path._gsTransform.rotation)) {
-        TweenMax.set(paths[i], {rotation: 0})
+    if (currentRotation) {
+      if (isAtStartingPoint(currentRotation)) {
+        gsap.set(paths[i], {rotation: 0})
       }
     }
   }
