@@ -25,6 +25,7 @@
     "react-dom": "^16.13.1",
     "react-socks": "^2.1.0",
     "react-typography": "^0.16.19",
+    "typescript": "^3.8.3",
     "typography": "^0.16.19"
   },
   "devDependencies": {
