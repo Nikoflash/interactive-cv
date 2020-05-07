@@ -1,15 +1,16 @@
 import React, {useEffect, useContext} from 'react'
 import styles from './pages.module.scss'
-import {TweenLite} from 'gsap'
+import {gsap} from 'gsap'
 import themes from '../components/layout/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
 import Header from '../components/layout/header'
+import Back from '../components/layout/back'
 
 export default ({heading = true, invert = false}) => {
   const theme = useContext(GlobalStateContext).theme
 
   useEffect(() => {
-    TweenLite.to('#page-profile', 0.5, {
+    gsap.to('#page-profile', 0.5, {
       css: { opacity: 1 }
     })
   }, [])
@@ -38,6 +39,8 @@ export default ({heading = true, invert = false}) => {
 
           <p>This site is in its first version and will serve as a testament to my creativity.</p>
         </div>
+
+        <Back pageId="page-profile"/>
       </div>
     </div>
   )

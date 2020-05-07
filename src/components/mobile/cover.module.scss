@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: space-around;
   font-family: Ubuntu;
-  font-size: 28px;
+  font-size: 26px;
+  padding: 80px 0;
 }
 
 .indent {
@@ -16,7 +17,26 @@
   display: flex;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .text-box {
   width: 200px;
   height: 120px;
+}
+
+.svg {
+  display: flex;
+  justify-content: center;
+  padding-top: 140px;
+  
+  svg {
+    width: 45px;
+    opacity: 0;
+    stroke: white;
+    mix-blend-mode: difference;
+  }
 }

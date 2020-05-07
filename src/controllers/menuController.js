@@ -1,12 +1,12 @@
-import {TimelineLite} from 'gsap'
+import {gsap} from 'gsap'
 import { navigate } from 'gatsby'
 
 export default (mouseDownId, mouseUpId) => {
 
-  const profile = new TimelineLite({paused: true})
-  const experience = new TimelineLite({paused: true})
-  const education = new TimelineLite({paused: true})
-  const personal = new TimelineLite({paused: true})
+  const profile = gsap.timeline({paused: true})
+  const experience = gsap.timeline({paused: true})
+  const education = gsap.timeline({paused: true})
+  const personal = gsap.timeline({paused: true})
 
   profile.to('#pf, #epre, #ec, #pn', 0.5, { 
     css: { opacity: 0 },

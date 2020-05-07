@@ -1,15 +1,16 @@
 import React, {useEffect, useContext} from 'react'
 import styles from './pages.module.scss'
-import {TweenLite} from 'gsap'
+import {gsap} from 'gsap'
 import themes from '../components/layout/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
 import Header from '../components/layout/header'
+import Back from '../components/layout/back'
 
 export default ({heading = true, invert = false}) => {
   const theme = useContext(GlobalStateContext).theme
 
   useEffect(() => {
-    TweenLite.to('#page-education', 0.5, {
+    gsap.to('#page-education', 0.5, {
       css: { opacity: 1 }
     })
   }, [])
@@ -66,8 +67,9 @@ export default ({heading = true, invert = false}) => {
           <b>Nørre Gymnasium</b>
           <p className={styles.year}>2003 - 2006</p>
         </div>
-        <p className={styles.title}>STX Linguistic</p>
+          <p className={styles.title}>STX Linguistic</p>
         </div>
+        <Back pageId="page-education"/>
       </div>
     </div>
   )

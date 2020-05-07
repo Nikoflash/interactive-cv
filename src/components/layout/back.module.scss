@@ -1,0 +1,44 @@
+.back {
+  width: 100%;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  svg {
+    position: absolute;
+    left: -18px;
+    width: 80px;
+  }
+
+  polygon {
+    stroke-width: 2px;
+  }
+
+  text {
+    font-family: Muli;
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+
+.back-light {
+  polygon {
+    stroke: black;
+  }
+
+  text {
+    fill: black;
+  }
+}
+
+.back-dark {
+  polygon {
+    stroke: white;
+  }
+
+  text {
+    fill: white;
+  }
+}

@@ -1,15 +1,16 @@
 import React, {useEffect, useContext} from 'react'
 import styles from './pages.module.scss'
-import {TweenLite} from 'gsap'
+import {gsap} from 'gsap'
 import themes from '../components/layout/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
 import Header from '../components/layout/header'
+import Back from '../components/layout/back'
 
 export default ({heading = true, invert = false}) => {
   const theme = useContext(GlobalStateContext).theme
 
   useEffect(() => {
-    TweenLite.to('#page-personal', 0.5, {
+    gsap.to('#page-personal', 0.5, {
       css: { opacity: 1 }
     })
   }, [])
@@ -35,6 +36,8 @@ export default ({heading = true, invert = false}) => {
           I live in Elsinore with my wife, who works as a project manager and our daughter. I spend a lot of time playing music and singing in different settings and love to run bare foot in the woods.
         </p>
         <p>I also spend a lot of time imagining funny website interactions like this site, most of them stay in my head, some of them don't make it past Sketch, but I enjoy trying to figure out how to create them.</p>
+        
+        <Back pageId="page-personal"/>
       </div>
     </div>
   )

@@ -33,7 +33,6 @@ export const Not = () => {
   const dispatch = useContext(GlobalDispatchContext)
 
   const handleClick = () => {
-    console.log('toggle')
     dispatch({ type: 'TOGGLE_THEME'})
   }
 
