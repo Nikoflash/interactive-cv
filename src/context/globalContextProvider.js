@@ -5,6 +5,7 @@ export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
   theme: true,
+  contactModal: false
 }
 
 function reducer(state, action) {
@@ -13,6 +14,12 @@ function reducer(state, action) {
       return {
         ...state,
         theme: !state.theme,
+      }
+    }
+    case "TOGGLE_CONTACT_MODAL": {
+      return {
+        ...state,
+        contactModal: !state.contactModal
       }
     }
     default:

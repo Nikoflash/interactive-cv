@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useContext} from 'react'
 import {gsap, Power2} from "gsap";
 import styles from './profile.module.scss'
 import LetterP, {pCoords, setLetterP} from './LetterP'

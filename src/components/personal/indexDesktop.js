@@ -12,16 +12,6 @@ export default ({handleClick}) => {
   const pbrRef = useRef(null)
   const pblRef = useRef(null)
 
-  const ptlAnimRef = useRef(null);
-  const ptrAnimRef = useRef(null);
-  const pbrAnimRef = useRef(null);
-  const pblAnimRef = useRef(null);
-
-  const ptlAnimRef2 = useRef(null);
-  const ptrAnimRef2 = useRef(null);
-  const pbrAnimRef2 = useRef(null);
-  const pblAnimRef2 = useRef(null);
-
   const pos = {
     ptlx: 0,
     ptly: 0,
@@ -34,17 +24,17 @@ export default ({handleClick}) => {
   }
   
   const mouseEnter = () => {        
-    ptlAnimRef.current = gsap.to(ptlRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
-    ptrAnimRef.current = gsap.to(ptrRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
-    pbrAnimRef.current = gsap.to(pbrRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
-    pblAnimRef.current = gsap.to(pblRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
+    gsap.to(ptlRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
+    gsap.to(ptrRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
+    gsap.to(pbrRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
+    gsap.to(pblRef.current, 0.5, {x: 220, y: 66, ease: Power3.easeOut})
   }
 
   const mouseLeave = () => {    
-    ptlAnimRef2.current = gsap.to(ptlRef.current, 0.5, {x: 0, y: 0, ease: Power1.easeOut})
-    ptrAnimRef2.current = gsap.to(ptrRef.current, 0.5, {x: 418, y: 0, ease: Power1.easeOut})
-    pbrAnimRef2.current = gsap.to(pbrRef.current, 0.5, {x: 418, y: 110, ease: Power1.easeOut})
-    pblAnimRef2.current = gsap.to(pblRef.current, 0.5, {x: 0, y: 110, ease: Power1.easeOut})
+    gsap.to(ptlRef.current, 0.5, {x: 0, y: 0, ease: Power1.easeOut})
+    gsap.to(ptrRef.current, 0.5, {x: 418, y: 0, ease: Power1.easeOut})
+    gsap.to(pbrRef.current, 0.5, {x: 418, y: 110, ease: Power1.easeOut})
+    gsap.to(pblRef.current, 0.5, {x: 0, y: 110, ease: Power1.easeOut})
   }
 
   return (

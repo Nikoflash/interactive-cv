@@ -2,6 +2,7 @@
   display: none;
   
   @media screen and (min-width: 992px) {
+    position: relative;
     display: flex;
     align-items: center;
     position: fixed;
@@ -38,6 +39,14 @@
 
 .logo-dark {
   color: white;
+}
+
+.buttons {
+  display: flex;
+
+  button:first-child {
+    margin-right: 20px;
+  }
 }
 
 .not {

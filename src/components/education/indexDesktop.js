@@ -15,7 +15,7 @@ import RightGutter from './RightGutter'
 import themes from '../layout/themes.module.scss'
 import {GlobalStateContext} from '../../context/globalContextProvider'
 
-export default({handleClick}) => {
+export default ({handleClick}) => {
   const theme = useContext(GlobalStateContext).theme
 
   const [isActive, setIsActive] = useState(true)

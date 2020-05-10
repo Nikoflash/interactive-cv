@@ -11,6 +11,7 @@ import MobileIndex from '../components/mobile/index'
 import {GlobalStateContext} from '../context/globalContextProvider'
 import Header from '../components/layout/header'
 import {gsap} from 'gsap'
+import ContactModal from '../components/contact/contactModal'
 
 export default () => {
   const theme = useContext(GlobalStateContext).theme
@@ -29,6 +30,7 @@ export default () => {
     <BreakpointProvider>
       <Breakpoint className={`${styles.breakpoint} ${theme ? themes.themeDesktopLight : themes.themeDesktopDark}`} customQuery="(min-width: 992px)">
         <Header />
+        <ContactModal />
         <ProfileDesktop handleClick={handleClick} />
         <ExperienceDesktop handleClick={handleClick} />
         <EducationDesktop handleClick={handleClick} />

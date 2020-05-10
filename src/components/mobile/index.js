@@ -1,9 +1,9 @@
 import React, {useContext, useEffect} from 'react'
 import Cover from './cover'
-import ProfileHeader, {onEnterProfile, onLeaveProfile} from '../profile/indexMobile'
-import ExperienceHeader, {onEnterExperience, onLeaveExperience} from '../experience/indexMobile'
-import EducationHeader, {onEnterEducation, onLeaveEducation} from '../education/indexMobile'
-import PersonalHeader, {onEnterPersonal, onLeavePersonal} from '../personal/indexMobile'
+import ProfileHeader, {onEnterProfile} from '../profile/indexMobile'
+import ExperienceHeader, {onEnterExperience} from '../experience/indexMobile'
+import EducationHeader, {onEnterEducation} from '../education/indexMobile'
+import PersonalHeader, {onEnterPersonal} from '../personal/indexMobile'
 import ProfileBody from '../../pages/profile'
 import ExperienceBody from '../../pages/experience'
 import EducationBody from '../../pages/education'
@@ -21,20 +21,15 @@ export default () => {
     rootMargin: '-400px 0px',
     threshold: 0.01
   }
+
   
-  const configLeave = {
-    rootMargin: '-450px 0px',
-    threshold: 0.01
-  }
-
-  let observerEnter
-  let observerLeave
-
   useEffect(() => {
+    let observerEnter
     let svgElements = document.querySelectorAll('.svg-element')
 
     observerEnter = new IntersectionObserver(onChangeEnter, configEnter)
     svgElements.forEach(svg => observerEnter.observe(svg))
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
@@ -53,8 +48,9 @@ export default () => {
             break
           case 'personal':
             onEnterPersonal()
+            break
           default:
-            break;
+            break
         }
         observer.unobserve(change.target)
       }
@@ -91,7 +87,6 @@ export default () => {
         </div>
         <PersonalBody heading={false} invert={true} />
       </div>
-     
     </div>
   )
 }

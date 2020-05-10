@@ -1,0 +1,189 @@
+.contact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  display: none;
+
+  .content {
+    position: relative;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 50px;
+  }
+
+  .icon-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    svg {
+      width: 15px;
+      stroke-width: 3px;
+    }
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  
+  .email,
+  .message {
+    .label {
+      padding-bottom: 2px;
+    }
+  
+    input,
+    textarea {
+      width: 100%;
+      resize: none;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    } 
+  
+    input {
+      height: 40px;
+    }
+  
+    textarea {
+      height: 160px;
+      padding-top: 5px;
+    }
+  }
+
+  .send-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .send {
+    font-weight: 600;
+    padding: 3px 7px 2px 7px;
+    height: 32px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+
+    .icon svg{
+      width: 30px;
+    }
+
+    .icon:first-child {
+      margin-right: 20px;
+    }
+  }
+
+  .letter {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: none;
+  }
+
+  .icon-stamp {
+    padding: 10px;
+    
+    svg {
+      width: 20px;
+      stroke-width: 1px;
+    }
+  }
+
+  .letter-name {
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+  }
+
+  .error-message {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    opacity: 0;
+    display: none;
+  }
+}
+
+.contact-light {
+  background-color: black;
+  color: white;
+
+  .social .icon svg {
+    fill: white;
+  }
+
+  .icon-close svg {
+    stroke: white;
+  }
+
+  input,
+  textarea {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    caret-color: white;
+  } 
+
+  .send {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+  }
+
+  .icon-stamp svg {
+    stroke: white;
+    fill: white;
+  }
+}
+
+.contact-dark {
+  background-color: white;
+  color: black;
+
+  .social .icon svg {
+    fill: black;
+  }
+
+  .icon-close svg {
+    stroke: black;
+  }
+
+  input,
+  textarea {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    caret-color: black;
+  } 
+
+  .send {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+  }
+
+  .icon-stamp svg {
+    stroke: black;
+    fill: black;
+  }
+}

@@ -5,6 +5,7 @@ import themes from '../components/layout/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
 import Header from '../components/layout/header'
 import Back from '../components/layout/back'
+import ContactModal from '../components/contact/contactModal'
 
 export default ({heading = true, invert= false}) => {
   const theme = useContext(GlobalStateContext).theme
@@ -25,6 +26,7 @@ export default ({heading = true, invert= false}) => {
   return (
     <div className={`${styles.page} ${themeClass}`}>
       <Header />
+      <ContactModal />
       <div id="page-experience" className={styles.container}>
         {heading &&
           <div className={styles.heading}>

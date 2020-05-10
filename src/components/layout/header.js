@@ -1,30 +1,47 @@
 import React, {useContext} from 'react'
 import {GlobalDispatchContext, GlobalStateContext} from '../../context/globalContextProvider'
 import styles from './header.module.scss'
-import { Link } from "gatsby"
+import { navigate } from "gatsby"
 
 export default () => {
 
   const theme = useContext(GlobalStateContext).theme
+  const modalOpen = useContext(GlobalStateContext).contactModal
   const dispatch = useContext(GlobalDispatchContext)
 
-  const handleClick = () => {
+  const handleNotClick = () => {
     dispatch({ type: 'TOGGLE_THEME'})
+  }
+
+  const handleContactClick = () => {
+    dispatch({ type: 'TOGGLE_CONTACT_MODAL' })
+  }
+
+  const handleClickLogo = () => {
+    if (!modalOpen) {
+      navigate('/')
+    }
   }
   
   return (
     <div className={styles.header}>
-      <div className={`${styles.logo} ${theme ? styles.logoLight : styles.logoDark}`}>
-        <Link to="/">&lt;<span>div</span>&gt;&lt;&#47;<span>dev</span>&gt;</Link>
+      <div onClick={handleClickLogo} className={`${styles.logo} ${theme ? styles.logoLight : styles.logoDark}`}>
+        &lt;<span>div</span>&gt;&lt;&#47;<span>dev</span>&gt;
       </div>
-      <div>
+      <div className={styles.buttons}>
+      <button 
+          className={`${styles.notDesktop} ${theme ? styles.notLight : styles.notDark}`}
+          onClick={handleContactClick}
+        >
+          CONTACT
+        </button>  
         <button 
           className={`${styles.notDesktop} ${theme ? styles.notLight : styles.notDark}`}
-          onClick={handleClick}
+          onClick={handleNotClick}
         >
           NOT
         </button>  
-      </div>       
+      </div>   
     </div>
   )
 }

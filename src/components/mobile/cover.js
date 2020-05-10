@@ -28,6 +28,7 @@ export default () => {
     
     t1.play()
     t2.play()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const arrowOpacity = () => {
