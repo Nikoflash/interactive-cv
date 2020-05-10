@@ -12,6 +12,7 @@ import styles from './index.module.scss'
 import themes from '../layout/themes.module.scss'
 import {GlobalStateContext} from '../../context/globalContextProvider'
 import {Not} from '../layout/header'
+import ContactModal from '../contact/indexMobile'
 
 
 export default () => {
@@ -67,25 +68,28 @@ export default () => {
         <div className={styles.sectionHeader}>
           <ProfileHeader />
         </div>
-        <ProfileBody heading={false} />
+        <ProfileBody desktop={false} />
       </div>
       <div className={`${styles.section} ${theme ? themes.themeDarkExperience : themes.themeLightExperience}`}>
         <div className={styles.sectionHeader}>
           <ExperienceHeader />
         </div>
-        <ExperienceBody heading={false} invert={true} />
+        <ExperienceBody desktop={false} invert={true} />
       </div>
       <div className={`${styles.section} ${theme ? themes.themeLightEducation : themes.themeDarkEducation}`}>
         <div className={styles.sectionHeader}>
           <EducationHeader />
         </div>
-        <EducationBody heading={false} />
+        <EducationBody desktop={false} />
       </div>
       <div className={`${styles.section} ${theme ? themes.themeDarkPersonal : themes.themeLightPersonal}`}>
         <div className={styles.sectionHeader}>
           <PersonalHeader />
         </div>
-        <PersonalBody heading={false} invert={true} />
+        <PersonalBody desktop={false} invert={true} />
+      </div>
+      <div className={`${styles.sectionContact} ${theme ? themes.themeLightPersonal : themes.themeDarkPersonal}`}>
+        <ContactModal />
       </div>
     </div>
   )

@@ -1,178 +1,6 @@
-import React, { useEffect, useRef, useContext, useState } from 'react'
-import styles from './contact.module.scss'
-import {gsap, Back, Power4, Power0} from 'gsap'
-import { GlobalStateContext, GlobalDispatchContext } from '../../context/globalContextProvider'
-import emailjs from 'emailjs-com'
+import React from 'react'
 
-
-let openModal, createMail, sendMail, failMail, stampSpin = {}
-
-export default () => {
-  const [firstRender, setFirstRender] = useState(false)
-  const modalState = useContext(GlobalStateContext).contactModal
-  const modalDispatch = useContext(GlobalDispatchContext)
-  const theme = useContext(GlobalStateContext).theme
-
-  const contactRef = useRef(null)
-  const contentRef = useRef(null)
-  const letterRef = useRef(null)
-  const stampRef = useRef(null)
-  const errorRef = useRef(null)
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState(`Hi Nikolas Dalton,\n\n`)
-
-  useEffect(() => {
-    if (firstRender) {
-      if (modalState) {
-        openModal.timeScale(1).play()
-      } else {
-        openModal.timeScale(2).reverse()
-      }
-    }
-  }, [modalState])
-  
-  useEffect(() => {
-    setFirstRender(true)
-    openModal = gsap.timeline({paused: true})
-    createMail = gsap.timeline({paused: true})
-    sendMail = gsap.timeline({paused: true})
-    failMail = gsap.timeline({paused: true})
-    stampSpin = gsap.timeline({paused: true, repeat: -1})
-
-    openModal.to(contactRef.current, 0.1, {
-       css: { width: '2px', display: 'block'}
-    }).to(contactRef.current, 0.3, {
-      css: { height: '416px' }
-    }).to(contactRef.current, 1, {
-      css: { width: '450px' },
-      ease: Back.easeOut
-    }).to(contentRef.current, 0.7, {
-      css: { opacity: 1 },
-      ease: Power4.easeIn,
-      delay: -0.7
-    })
-
-    createMail.to(contentRef.current, 0.4, {
-      css: { opacity: 0 }
-    }).to(contactRef.current, 1, {
-      css: { width: '200px', height: '130px' },
-      ease: Power4.easeOut
-    }).to(letterRef.current, 0.3, {
-      css: { display: 'block', opacity: 1 },
-      delay: -0.2, 
-      onComplete: () => {
-        stampSpin.play()
-      }
-    })
-    
-    sendMail.to(stampRef.current, 0.1, {
-      rotation: '0_short',
-      transformOrigin: '50% 50%'
-    }).to(contactRef.current, 1, {
-      x: `${window.innerWidth + 200}`,
-      ease: Power4.easeIn
-    }).set(contactRef.current, {
-      css: { display: 'none' }
-    })
-
-    failMail.to(contactRef.current, 0.5, {
-      css: { height: '460px' },
-      ease: Power0.easeInOut
-    }).to(errorRef.current, 1, {
-      css: { display: 'flex', opacity: 1 },
-      ease: Power0.easeIn
-    })
-
-    stampSpin.to(stampRef.current, 1, {
-      rotate: 360,
-      transformOrigin: '50% 50%',
-      ease: Power0.easeNone
-    })
-  }, [])
-
-  const closeModal = () => {
-    modalDispatch({ type: 'TOGGLE_CONTACT_MODAL' })
-  }
-
-  const submitForm = (e) => {
-    e.preventDefault()
-    createMail.play()
-
-    emailjs.send('gmail', 'template_xPjfRU9R', {email: email, message: message}, process.env.GATSBY_EMAILJS_USER_ID )
-    .then(function() {
-      stampSpin.kill()
-      sendMail.play()
-    }, function(error) {
-      stampSpin.kill()
-      createMail.reverse().then(() => {
-        failMail.play()
-      })
-      console.log(error)
-    })
-  }
-
-  return (
-    <div ref={contactRef} className={`${styles.contact} ${theme ? styles.contactLight : styles.contactDark}`}>
-      <div ref={letterRef} className={styles.letter}>
-        <div className={styles.iconStamp}>
-          <IconStamp stampRef={stampRef}/>
-        </div>
-        <p className={styles.letterName}>Nikolas Dalton</p>
-      </div>
-      <div ref={contentRef} className={styles.content}>
-        <div onClick={closeModal} className={styles.iconClose}>
-          <IconClose />
-        </div>
-        <form className={styles.form} onSubmit={submitForm}>
-          <div className={styles.email}>
-            <div className={styles.label}>Your email</div>
-            <input 
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-  
-          <div className={styles.message}>
-            <div className={styles.label}>Your message</div>
-            <textarea 
-              name="" 
-              cols="30" 
-              rows="10"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}>
-            </textarea>
-
-            <div className={styles.sendSocial}>
-              <button
-                className={styles.send}
-              >
-                SEND
-              </button>
-              <div className={styles.social}>
-                <div className={styles.icon}>
-                  <a target="_blank" href="mailto:nikoflash@gmail.com">
-                    <IconEmail />
-                  </a>
-                </div>
-                <div className={styles.icon}>
-                  <a target="_blank" href="https://www.linkedin.com/in/nikolas-dalton-193a26119/">
-                    <IconLinkedin />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-        <div ref={errorRef} className={styles.errorMessage}>
-          Error: please try agin later!
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const IconEmail = () => {
+export const IconEmail = () => {
   return (
     <svg viewBox="0 0 40 30" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <g stroke="none" strokeWidth="1" fillRule="nonzero">
@@ -191,7 +19,7 @@ const IconEmail = () => {
   )
 }
 
-const IconLinkedin = () => {
+export const IconLinkedin = () => {
   return (
     <svg viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <g stroke="none" strokeWidth="1" fillRule="nonzero">
@@ -208,7 +36,7 @@ const IconLinkedin = () => {
   )
 }
 
-const IconClose = () => {
+export const IconClose = () => {
   return (
     <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <path d="M1,1 L19,19"/>
@@ -217,7 +45,7 @@ const IconClose = () => {
   )
 }
 
-const IconStamp = ({stampRef}) => {
+export const IconStamp = ({stampRef}) => {
   return (
     <svg ref={stampRef} viewBox="0 0 77 91" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <path d="M43,90 L34,90 C34,86.6666667 32.6666667,85 30,85 C27.3333333,85 26,86.6666667 26,90 L19,90 C18.3333333,86.6666667 16.6666667,85 14,85 C11.3333333,85 9.66666667,86.6666667 9,90 L1,90 L1,83 C4.33333333,83 6,81.6666667 6,79 C6,76.3333333 4.33333333,75 1,75 L1,66 C4.33333333,66 6,64.6666667 6,62 C6,59.3333333 4.33333333,58 1,58 L1,50 C4.33333333,50 6,48.5 6,45.5 C6,42.5 4.33333333,41 1,41 L1,33 C4.33333333,33 6,31.6666667 6,29 C6,26.3333333 4.33333333,25 1,25 L1,17 C4.33333333,17 6,15.6666667 6,13 C6,10.3333333 4.33333333,9 1,9 L1,1 L10,1 C10,4.33333333 11.3333333,6 14,6 C16.6666667,6 18,4.33333333 18,1 L26,1 C26,4.33333333 27.3333333,6 30,6 C32.6666667,6 34,4.33333333 34,1 L43,1 C43,4.33333333 44.3333333,6 47,6 C49.6666667,6 51,4.33333333 51,1 L59,1 C59,4.33333333 60.3333333,6 63,6 C65.6666667,6 67,4.33333333 67,1 L76,1 L76,9 C72.6666667,9 71,10.3333333 71,13 C71,15.6666667 72.6666667,17 76,17 L76,25 C72.6666667,25 71,26.3333333 71,29 C71,31.6666667 72.6666667,33 76,33 L76,41 C72.6666667,41 71,42.5 71,45.5 C71,48.5 72.6666667,50 76,50 L76,58 C72.6666667,58 71,59.3333333 71,62 C71,64.6666667 72.6666667,66 76,66 L76,75 C72.6666667,75 71,76.3333333 71,79 C71,81.6666667 72.6666667,83 76,83 L76,90 L68,90 C67.3333333,86.6666667 65.6666667,85 63,85 C60.3333333,85 58.6666667,86.6666667 58,90 L51,90 C51,86.6666667 49.6666667,85 47,85 C44.3333333,85 43,86.6666667 43,90 Z"></path>

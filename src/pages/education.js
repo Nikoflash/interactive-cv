@@ -5,9 +5,9 @@ import themes from '../components/layout/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
 import Header from '../components/layout/header'
 import Back from '../components/layout/back'
-import ContactModal from '../components/contact/contactModal'
+import ContactModal from '../components/contact/indexDesktop'
 
-export default ({heading = true, invert = false}) => {
+export default ({desktop = true, invert = false}) => {
   const theme = useContext(GlobalStateContext).theme
 
   useEffect(() => {
@@ -26,9 +26,11 @@ export default ({heading = true, invert = false}) => {
   return (
     <div className={`${styles.page} ${themeClass}`}>
       <Header />
-      <ContactModal />
+      {desktop &&
+        <ContactModal />
+      }
       <div id="page-education" className={styles.container}>
-        {heading &&
+        {desktop &&
           <div className={styles.heading}>
             <h1>Education</h1>
           </div>

@@ -11,7 +11,7 @@ import MobileIndex from '../components/mobile/index'
 import {GlobalStateContext} from '../context/globalContextProvider'
 import Header from '../components/layout/header'
 import {gsap} from 'gsap'
-import ContactModal from '../components/contact/contactModal'
+import ContactModal from '../components/contact/indexDesktop'
 
 export default () => {
   const theme = useContext(GlobalStateContext).theme

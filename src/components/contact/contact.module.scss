@@ -1,19 +1,35 @@
+.contact-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .contact {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  display: none;
+  width: 90%;
+  height: 456px;
+
+  @media screen and (min-width: 992px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    display: none;
+  }
 
   .content {
     position: relative;
-    opacity: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 40px 50px;
+
+    @media screen and (min-width: 992px) {
+      opacity: 0;
+    }
   }
 
   .icon-close {
@@ -57,8 +73,12 @@
     }
   
     textarea {
-      height: 160px;
+      height: 200px;
       padding-top: 5px;
+
+      @media screen and (min-width: 992px) {
+        height: 160px
+      }
     }
   }
 
