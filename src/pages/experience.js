@@ -57,7 +57,7 @@ export default ({desktop = true, invert= false}) => {
 
           <div className={styles.header}>
             <b>Front-end internship</b>
-            <p>August 2016 - November 2016</p>
+            <p>Aug. 2016 - Nov. 2016</p>
           </div>
           <div className={styles.title}>
             MOFO ApS
@@ -67,7 +67,7 @@ export default ({desktop = true, invert= false}) => {
 
           <div className={styles.header}>
             <b>Multiple service oriented jobs.</b>
-            <p>September 2010 - Jan 2014</p>
+            <p>Sept. 2010 - Jan. 2014</p>
           </div>
           <div className={styles.title}>
             AS3 Companies

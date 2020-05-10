@@ -45,7 +45,7 @@ export default ({desktop = true, invert = false}) => {
 
         <div className={styles.header}>
           <b>KVUC</b>
-          <p className={styles.year}>Januar 2014 - Juni 2014</p>
+          <p className={styles.year}>Jan. 2014 - June 2014</p>
         </div>
         <p className={styles.title}>Math B</p>
 
@@ -63,7 +63,7 @@ export default ({desktop = true, invert = false}) => {
 
         <div className={styles.header}>
           <b>Den Rytmiske Højskole</b>
-          <p className={styles.year}>Efterår 2007</p>
+          <p className={styles.year}>Fall 2007</p>
         </div>
         <p className={styles.title}>Folk high school - Singer</p>
 
