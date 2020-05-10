@@ -7,6 +7,7 @@ export default () => {
 
   const theme = useContext(GlobalStateContext).theme
   const modalOpen = useContext(GlobalStateContext).contactModal
+  const emailSent = useContext(GlobalStateContext).emailSent
   const dispatch = useContext(GlobalDispatchContext)
 
   const handleNotClick = () => {
@@ -14,7 +15,9 @@ export default () => {
   }
 
   const handleContactClick = () => {
-    dispatch({ type: 'TOGGLE_CONTACT_MODAL' })
+    if (!emailSent) {
+      dispatch({ type: 'TOGGLE_CONTACT_MODAL' })
+    }
   }
 
   const handleClickLogo = () => {

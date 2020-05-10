@@ -11,7 +11,7 @@ let openModal, createMail, sendMail, failMail, stampSpin = {}
 export default () => {
   const [firstRender, setFirstRender] = useState(false)
   const modalState = useContext(GlobalStateContext).contactModal
-  const modalDispatch = useContext(GlobalDispatchContext)
+  const dispatch = useContext(GlobalDispatchContext)
   const theme = useContext(GlobalStateContext).theme
 
   const contactRef = useRef(null)
@@ -92,7 +92,7 @@ export default () => {
   }, [])
 
   const closeModal = () => {
-    modalDispatch({ type: 'TOGGLE_CONTACT_MODAL' })
+    dispatch({ type: 'TOGGLE_CONTACT_MODAL' })
   }
 
   const submitForm = (e) => {
@@ -102,7 +102,10 @@ export default () => {
     emailjs.send('gmail', 'template_xPjfRU9R', {email: email, message: message}, process.env.GATSBY_EMAILJS_USER_ID )
     .then(function() {
       stampSpin.kill()
-      sendMail.play()
+      sendMail.play().then(() => {
+        closeModal()
+        dispatch({ type: 'TOGGLE_EMAIL_SENT' })
+      })
     }, function(error) {
       stampSpin.kill()
       createMail.reverse().then(() => {
