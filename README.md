@@ -1,4 +1,4 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <h1 align="center">
-  Marie Dalton
+  Nikolas Dalton's interactive CV
 </h1>
