@@ -10,8 +10,8 @@ import {gsap} from 'gsap'
 export default () => {
 
   const menuRef = useRef(null)
+  
   const navigateToNextPage = (pageName) => {
-
     gsap.to(menuRef.current, 0.5, { 
       css: { opacity: 0 },
       onComplete: () => {
