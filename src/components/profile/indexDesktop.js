@@ -8,7 +8,7 @@ import LetterF, {fCoords, setLetterF} from './LetterF'
 import LetterI from './LetterI'
 import LetterL, {lCoords, setLetterL} from './LetterL'
 import LetterE, {eCoords, setLetterE} from './LetterE'
-import themes from '../layout/themes.module.scss'
+import themes from '../../layouts/themes.module.scss'
 import {GlobalStateContext} from '../../context/globalContextProvider'
 
 export default ({handleClick}) => { 
@@ -50,7 +50,7 @@ export default ({handleClick}) => {
   }
 
 
-  return <div id="pf" className={`${styles.profileContainer} ${theme ? themes.themeLightProfile : themes.themeDarkProfile}`}>
+  return <div className={`${styles.profileContainer} ${theme ? themes.themeLightProfile : themes.themeDarkProfile}`}>
     <svg className="svg-profile" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 533 132" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <LetterP transform="11,1" />
       <LetterR transform="103,1" />

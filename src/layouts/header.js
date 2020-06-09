@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {GlobalDispatchContext, GlobalStateContext} from '../../context/globalContextProvider'
+import {GlobalDispatchContext, GlobalStateContext} from '../context/globalContextProvider'
 import styles from './header.module.scss'
 import { navigate } from "gatsby"
 

@@ -1,7 +1,7 @@
 import React, {useRef, useContext} from 'react'
 import styles from "./personal.module.scss"
 import {gsap, Power1, Power3} from "gsap";
-import themes from '../layout/themes.module.scss'
+import themes from '../../layouts/themes.module.scss'
 import {GlobalStateContext} from '../../context/globalContextProvider'
 
 export default ({handleClick}) => {
@@ -38,7 +38,7 @@ export default ({handleClick}) => {
   }
 
   return (
-    <div id="pn" className={`${styles.personalContainer} ${theme ? themes.themeLightPersonal : themes.themeDarkPersonal}`}>
+    <div className={`${styles.personalContainer} ${theme ? themes.themeLightPersonal : themes.themeDarkPersonal}`}>
       <svg className={`svg-personal ${styles.personal}`} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} viewBox="0 0 1164 220" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g>
           <PersonalTopLeft ptlRef={ptlRef} pos={pos} />

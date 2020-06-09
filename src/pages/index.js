@@ -1,43 +1,25 @@
-import React, {useContext, useEffect} from "react"
+import React, {useContext} from "react"
 import styles from './index.module.scss'
-import themes from '../components/layout/themes.module.scss'
-import PersonalDesktop from '../components/personal/indexDesktop'
-import ProfileDesktop from '../components/profile/indexDesktop'
-import EducationDesktop from '../components/education/indexDesktop'
-import ExperienceDesktop from '../components/experience/indexDesktop'
-import menuController from '../controllers/menuController'
+import themes from '../layouts/themes.module.scss'
 import { Breakpoint, BreakpointProvider } from 'react-socks'
-import MobileIndex from '../components/mobile/index'
+import IndexDesktop from '../containers/desktop/index'
+import IndexMobile from '../containers/mobile/index'
 import {GlobalStateContext} from '../context/globalContextProvider'
-import Header from '../components/layout/header'
-import {gsap} from 'gsap'
+import Header from '../layouts/header'
 import ContactModal from '../components/contact/indexDesktop'
 
 export default () => {
   const theme = useContext(GlobalStateContext).theme
-
-  const handleClick = (e) => {
-    menuController(e.target.id, e.target.id)
-  }
-
-  useEffect(() => {
-    gsap.to('#pf, #epre, #ec, #pn', 0.5, {
-      css: { opacity: 1 }
-    })
-  }, [])
 
   return (
     <BreakpointProvider>
       <Breakpoint className={`${styles.breakpoint} ${theme ? themes.themeDesktopLight : themes.themeDesktopDark}`} customQuery="(min-width: 992px)">
         <Header />
         <ContactModal />
-        <ProfileDesktop handleClick={handleClick} />
-        <ExperienceDesktop handleClick={handleClick} />
-        <EducationDesktop handleClick={handleClick} />
-        <PersonalDesktop handleClick={handleClick} />
+        <IndexDesktop />
       </Breakpoint>
       <Breakpoint className={styles.breakpoint} customQuery="(max-width: 991px)">
-        <MobileIndex />
+        <IndexMobile />
       </Breakpoint>
     </BreakpointProvider>
   )

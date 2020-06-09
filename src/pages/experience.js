@@ -1,10 +1,10 @@
 import React, {useEffect, useContext} from 'react'
 import styles from './pages.module.scss'
 import {gsap} from 'gsap'
-import themes from '../components/layout/themes.module.scss'
+import themes from '../layouts/themes.module.scss'
 import {GlobalStateContext} from '../context/globalContextProvider'
-import Header from '../components/layout/header'
-import Back from '../components/layout/back'
+import Header from '../layouts/header'
+import Back from '../components/back'
 import ContactModal from '../components/contact/indexDesktop'
 
 export default ({desktop = true, invert= false}) => {

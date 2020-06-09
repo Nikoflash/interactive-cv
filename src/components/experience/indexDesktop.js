@@ -1,7 +1,7 @@
 import React, {useEffect, useContext} from 'react'
 import styles from './experience.module.scss'
 import {gsap, Bounce, Power2} from "gsap"
-import themes from '../layout/themes.module.scss'
+import themes from '../../layouts/themes.module.scss'
 import {GlobalStateContext} from '../../context/globalContextProvider'
 
 let t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 = {}
@@ -138,7 +138,7 @@ export default ({handleClick}) => {
   }
 
   return (
-    <div id="epre" className={`${styles.experience} ${theme ? themes.themeLightExperience : themes.themeDarkExperience}`}>
+    <div className={`${styles.experience} ${theme ? themes.themeLightExperience : themes.themeDarkExperience}`}>
       <svg id="xp" className={styles.xp} viewBox="0 0 510 95" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" fillRule="evenodd" strokeLinecap="round">
           <g  transform="translate(1.000000, 2.000000)" strokeWidth="3">

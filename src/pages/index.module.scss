@@ -11,10 +11,6 @@
 
 .breakpoint {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
 
   @media screen and (min-width: 992px) {
     padding: 60px 0;

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import styles from './back.module.scss'
-import {GlobalStateContext} from '../../context/globalContextProvider' 
+import {GlobalStateContext} from '../context/globalContextProvider' 
 import {navigate} from 'gatsby'
 import {gsap} from 'gsap'
 

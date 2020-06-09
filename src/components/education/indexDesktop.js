@@ -12,7 +12,7 @@ import LetterI, {iParams} from './LetterI'
 import LetterO, {oParams} from './LetterO'
 import LetterN, {nParams} from './LetterN'
 import RightGutter from './RightGutter'
-import themes from '../layout/themes.module.scss'
+import themes from '../../layouts/themes.module.scss'
 import {GlobalStateContext} from '../../context/globalContextProvider'
 
 export default ({handleClick}) => {
@@ -79,7 +79,7 @@ export default ({handleClick}) => {
     setIsActive(false)
   }
 
-  return <div id="ec" className={`${styles.education} ${theme ? themes.themeLightEducation : themes.themeDarkEducation}`}>
+  return <div className={`${styles.education} ${theme ? themes.themeLightEducation : themes.themeDarkEducation}`}>
   <svg viewBox="0 0 902 195" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(1,0)">
       <LeftGutter />
