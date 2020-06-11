@@ -10,7 +10,7 @@ import {gsap} from 'gsap'
 export default () => {
 
   const menuRef = useRef(null)
-  
+
   const navigateToNextPage = (pageName) => {
     gsap.to(menuRef.current, 0.5, { 
       css: { opacity: 0 },
@@ -24,12 +24,16 @@ export default () => {
     switch (e.target.id) {
       case 'profileButton':
         navigateToNextPage('profile')
+        break;
       case 'experienceButton':
         navigateToNextPage('experience')
+        break;
       case 'educationButton':
         navigateToNextPage('education')
+        break;
       case 'personalButton':
         navigateToNextPage('personal')
+        break;
       default:
         break;
     }
