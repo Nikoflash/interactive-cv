@@ -5,7 +5,6 @@ import {gsap, Back, Power4, Power0} from 'gsap'
 import { GlobalStateContext, GlobalDispatchContext } from '../../context/globalContextProvider'
 import emailjs from 'emailjs-com'
 
-
 let openModal, createMail, sendMail, failMail, stampSpin = {}
 
 export default () => {

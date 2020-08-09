@@ -19,40 +19,39 @@ export default () => {
   const theme = useContext(GlobalStateContext).theme
 
   const configEnter = {
-    rootMargin: '-400px 0px',
-    threshold: 0.01
+    rootMargin: '-100px 0px',
+    threshold: 1.0
   }
 
-  
   useEffect(() => {
     let observerEnter
     let svgElements = document.querySelectorAll('.svg-element')
 
     observerEnter = new IntersectionObserver(onChangeEnter, configEnter)
     svgElements.forEach(svg => observerEnter.observe(svg))
-     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
   const onChangeEnter = (changes, observer) => {
     changes.forEach(change => {
       if (change.intersectionRatio > 0) {
-        switch (change.target.id) {
-          case 'profile':
-            onEnterProfile()
-            break
-          case 'experience':
-            onEnterExperience()    
-            break
-          case 'education':
-            onEnterEducation()
-            break
-          case 'personal':
-            onEnterPersonal()
-            break
-          default:
-            break
+        if (change.target.id === 'profile') {
+          console.log('profiles')
+          onEnterProfile()
         }
+        
+        if (change.target.id === 'experience') {
+          onEnterExperience()
+        }
+
+        if (change.target.id === 'education') {
+          onEnterEducation()
+        }
+
+        if (change.target.id === 'personal') {
+          onEnterPersonal()
+        }
+      
         observer.unobserve(change.target)
       }
     })

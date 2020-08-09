@@ -32,22 +32,13 @@
   }
 }
 
+.theme-light-profile,
 .theme-dark-profile,
+.theme-light-education, 
 .theme-dark-education {
-  svg,
+svg,
   path {
     stroke-width: 2px;
-  }
-}
-
-.theme-light-education {
-  svg,
-  path {
-    stroke-width: 2px;
-
-    @media screen and (min-width: 992px) {
-      stroke-width: 1px;
-    }
   }
 }
 

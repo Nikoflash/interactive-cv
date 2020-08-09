@@ -38,8 +38,16 @@ export default ({desktop = true, invert= false}) => {
 
         <div className={styles.experience}>
           <div className={styles.header}>
+            <b>Frontend Consultant</b>
+            <p>July 2020 - Now</p>
+          </div>
+          <div className={styles.title}>
+            Pentia A/S
+          </div>
+
+          <div className={styles.header}>
             <b>Frontend Developer</b>
-            <p>May 2018 - Now</p>
+            <p>May 2018 - June 2020</p>
           </div>
           <p className={styles.title}>
             Billy ApS
