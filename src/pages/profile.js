@@ -40,8 +40,6 @@ export default ({desktop = true, invert = false}) => {
           <p>My name is Nikolas Dalton. I am an imaginative and detail oriented front-end developer with an understanding of both back-end and design, and I enjoy working from that position. I’m visually oriented and like to be an active part of the creative process, while maintaining a reflective and analytic approach to my work. I have the ability to focus in depth on a specific task, but I also like being part of a team and the synergy that comes from working with others.</p>
     
           <p>Most of all I am committed to quality and finding the best solution. I’m driven by the curiosity to find new solutions and find great satisfaction in learning something new.</p>
-
-          <p>This site is in its first version and will serve as a testament to my creativity.</p>
         </div>
 
         <Back pageId="page-profile"/>

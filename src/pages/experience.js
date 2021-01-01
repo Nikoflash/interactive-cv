@@ -53,16 +53,6 @@ export default ({desktop = true, invert= false}) => {
             Billy ApS
           </p>
 
-          <p>- Responsible for maintaining billy.dk - HTML, SCSS, Javascript.</p>
-
-          <p>- Collaborate with our designers and implement new features as reusable components with cross-browser compatibility and responsiveness in mind.</p>
-
-          <p>- Responsible for the technical implementation of SEO - lazy loading, image compression, AMP, structured data.</p>
-
-          <p>- Choosing the right technology when implementing bigger projects like <a href="https://www.billy.dk/send-faktura-gratis/" target="_blank" rel="noopener noreferrer">billy.dk/send-faktura-gratis</a></p>
-
-          <p>- Train new imployees in the use of Git, HTML, CSS and validate content before it goes live.</p>
-
           <div className={styles.header}>
             <b>Front-end internship</b>
             <p>Aug. 2016 - Nov. 2016</p>
