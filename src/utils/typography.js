@@ -5,7 +5,7 @@ const typography = new Typography({
   color: '#15865E',
   googleFonts: [
     {
-      name: 'Muli',
+      name: 'Mulish',
       styles: [
         '300',
         '400',
@@ -28,7 +28,7 @@ const typography = new Typography({
     },
   ],
   headerFontFamily: ["Source Sans Pro", "serif"],
-  bodyFontFamily: ["Muli", "sans-serif"]
+  bodyFontFamily: ["Mulish", "sans-serif"]
 });
 
 // Insert styles directly into the <head>
