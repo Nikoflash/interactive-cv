@@ -4,7 +4,7 @@ export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
-  theme: true,
+  theme: false,
   contactModal: false,
   emailSent: false
 }
